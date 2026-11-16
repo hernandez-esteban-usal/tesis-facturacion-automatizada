@@ -1,45 +1,96 @@
 %!TEX root = ../main.tex
-% =============================================================
-%  CAPÍTULO 1 — INTRODUCCIÓN            (Entrega 1 · 5 % · 9/6)
-% =============================================================
-
 \chapter{Introducción}\label{cap:introduccion}
 
-\begin{guia}[Guía de la cátedra: qué se evalúa en este capítulo]
+En una empresa automotriz sudamericana, los procesos de facturación de unidades dependen de la validación de las líneas de crédito que realizan entidades bancarias. Esta dinámica, que forma parte del funcionamiento cotidiano del negocio, implica un intercambio constante de información sensible entre sistemas muy diferentes entre sí, lo que termina generando una complejidad operativa mayor a la deseada.
+
+La actualización de estas líneas de crédito continúa realizándose de manera manual. El usuario de cuentas a cobrar consulta el saldo disponible de cada concesionario en el home banking de la entidad bancaria o lo recibe por correo electrónico, y luego lo carga a mano en los sistemas internos. El informe de las unidades facturadas a la entidad bancaria tampoco es homogéneo: en Chile se realiza mediante un archivo transferido por FTP, mientras que en Perú el usuario debe armar en Excel la planilla que requiere la entidad. A esto se suma que la confirmación de las unidades facturadas se comunica mediante correos redactados manualmente. Este esquema presenta limitaciones claras: tareas lentas, riesgo de errores de tipeo y dificultades para llevar un seguimiento preciso de cada operación. La falta de visibilidad sobre fallas o inconsistencias es especialmente crítica cuando se trata de información financiera.
+
+Ante esta situación, surge la necesidad de modernizar el proceso y adoptar herramientas que permitan automatizar y ordenar estas tareas. Este trabajo propone el diseño e implementación de una solución con arquitectura modular, construida sobre el sistema legado existente, que separe las responsabilidades de cada componente e integre de manera más eficiente los sistemas internos con las entidades bancarias mediante API REST.
+
+El objetivo es reducir la intervención manual, minimizar los errores y mejorar la trazabilidad, el monitoreo y el manejo de excepciones. La solución contempla un alcance regional que permita aplicarla en países como Chile y Perú, con la posibilidad de extenderla a otros mercados en el futuro.
+
+\section{Valor de entrega}
+
+La propuesta de este trabajo apunta a mejorar la forma en que se gestionan las líneas de crédito en una empresa de la industria automotriz con presencia en Sudamérica, reemplazando la carga manual de saldos, el armado de planillas en Excel, el envío de archivos por FTP y las notificaciones por correo por una solución automatizada basada en API REST.
+
+Con esta implementación, se busca reducir los tiempos de trabajo diario y disminuir los errores que hoy se generan por la intervención manual. Al mismo tiempo, se mejora la forma en que se accede y se controla la información, lo que permite tener una visión más clara del estado de los procesos.
+
+Además, la organización modular de la solución, que separa en aplicaciones distintas la consulta de crédito y la comunicación con cada entidad bancaria, facilita que el sistema pueda adaptarse a cambios futuros y a la incorporación de nuevas entidades bancarias. Esto es especialmente importante en un entorno regional, donde intervienen varios países y diferentes necesidades.
+
+En conjunto, la solución no solo moderniza el proceso actual, sino que también mejora su funcionamiento general, especialmente en lo que respecta al control, la trazabilidad y el manejo de errores.
+
+\section{Objetivos}
+
+El objetivo general de este proyecto es desarrollar e implementar un sistema de facturación automatizado con integración bancaria, orientado a mejorar la eficiencia operativa, reducir tareas manuales y optimizar el seguimiento del proceso de facturación en una empresa de la industria automotriz.
+
+Para alcanzar este propósito, se plantean los siguientes objetivos específicos:
+
 \begin{enumerate}
-    \item \textbf{Descripción del problema}: concreto, anclado en evidencia
-          (datos duros con fuente, casos reales, competidores nombrados).
-    \item \textbf{Objetivo general}: uno solo, medible, en un párrafo.
-          Los \textbf{objetivos específicos} se desprenden de él y
-          \emph{no} son los pasos del plan de trabajo.
-    \item \textbf{Hipótesis}: explícita, formulada como pregunta o
-          afirmación de investigación que pueda responderse en el
-          capítulo~\ref{cap:conclusiones}.
-    \item \textbf{Relevancia}: por qué importa, a quién beneficia, qué les
-          falta a las soluciones existentes.
-    \item \textbf{Alcance y recursos}: qué entra y qué no; stack y fuentes
-          de datos previstos. El ``alcance que nunca cierra'' es el riesgo
-          número uno de la materia.
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Analizar el proceso actual de facturación y de gestión de líneas de crédito, con el fin de identificar sus principales limitaciones operativas.
+\item
+  Evaluar las limitaciones del proceso manual vigente y del intercambio de información mediante archivos, tanto por FTP en Chile como mediante planillas de Excel en Perú.
+\item
+  Diseñar una arquitectura modular que, sin reemplazar el sistema legado, desacople componentes y facilite el mantenimiento y la escalabilidad del sistema.
+\item
+  Implementar la integración con entidades bancarias mediante API REST, con el fin de automatizar la consulta de líneas de crédito y el informe de facturas.
+\item
+  Incorporar mecanismos de monitoreo, auditoría y manejo de errores.
+\item
+  Evaluar la viabilidad de extender la solución a múltiples países.
 \end{enumerate}
-Extensión orientativa: 4 a 6 páginas. Redacción impersonal, sin ``yo
-creo'', oraciones de 15 a 22 palabras, sin palabras vacías
-(``claramente'', ``obviamente''). Toda cifra con su fuente citada, por
-ejemplo \citep{breiman2001}.
-\end{guia}
 
-\completar{Desarrollo del capítulo. Las secciones y subsecciones se
-organizan como resulte mejor para el proyecto.}
+\section{Barreras}
 
-\section{\completar{Nombre de la sección}}
+El desarrollo e implementación de una solución de facturación automatizada con integración bancaria implica enfrentar diversas barreras técnicas y organizacionales. Una de las principales radica en la dependencia de sistemas existentes, cuya arquitectura original responde a un modelo monolítico con procesos batch e intercambio de información mediante archivos FTP, desarrollado bajo tecnologías anteriores (Java 6 y JavaServer Faces) no orientadas a integraciones ágiles con servicios modernos.
 
-\begin{ejemplo}[Ejemplo: forma de un objetivo general]
-Desarrollar un sistema de \completar{qué} para \completar{quién} en
-\completar{dónde}, que permita \completar{resultado medible} mediante
-\completar{enfoque o tecnología central}.
-\end{ejemplo}
+La modernización de este entorno requiere una transición planificada y controlada que garantice la continuidad operativa del negocio, evitando interrupciones en procesos críticos como la facturación y la administración.
 
-\completar{Texto.}
+Otra barrera significativa está asociada a la integración con entidades bancarias externas, debido a diferencias tecnológicas, cambios en interfaces, limitaciones en los tiempos de disponibilidad y la dependencia de terceros para la realización de pruebas y validaciones. Además, no siempre se dispone con anticipación si cada entidad cuenta con servicios disponibles para la integración, por lo que en algunos casos podrían requerir desarrollos adicionales.
 
-\subsection{\completar{Nombre de la subsección}}
+También deben contemplarse restricciones vinculadas a la seguridad de la información y al tratamiento de datos financieros sensibles, lo que exige controles estrictos en materia de acceso, auditoría, trazabilidad y resguardo de información.
 
-\completar{Texto.}
+Por último, la adopción de nuevas herramientas puede verse condicionada por factores internos, como la necesidad de capacitación del personal, la adecuación de procesos existentes y la posible resistencia al cambio dentro de la organización.
+
+\section{Relevancia}
+
+El presente trabajo posee una relevancia significativa al proponer la modernización de un proceso crítico dentro de la operatoria administrativa y comercial de una empresa de la industria automotriz. La facturación de unidades y validación de líneas de crédito constituyen actividades centrales para la continuidad del negocio, por lo que su optimización impacta directamente en la eficiencia operativa y en los tiempos de respuesta.
+
+La implementación de una solución automatizada con integración bancaria permitirá reducir tareas manuales, minimizar errores operativos y optimizar el seguimiento de cada operación realizada. Asimismo, se incorporarán mecanismos de monitoreo y auditoría, tales como alertas automáticas a través de Teams, el registro de errores y estados de procesamiento en base de datos, lo que fortalecerá el control operativo y la trazabilidad del proceso.
+
+Desde el punto de vista tecnológico, el proyecto cobra especial relevancia al impulsar la evolución desde una arquitectura tradicional hacia un modelo más moderno, escalable y mantenible, alineado con las necesidades actuales de integración entre sistemas.
+
+Finalmente, el valor del trabajo también radica en la posibilidad de reutilizar la solución en otros mercados o países donde la organización opere, lo que facilitará futuras implementaciones y contribuirá a la estandarización de procesos a nivel regional.
+
+\section{Hipótesis}
+
+La implementación de un sistema de facturación automatizado integrado con entidades bancarias permitirá mejorar la eficiencia operativa, reducir la intervención manual y aumentar la trazabilidad del proceso, en comparación con el modelo actual basado en procesos manuales y en el intercambio de información mediante archivos, ya sea por FTP o mediante planillas de Excel.
+
+\section{Enfoque}
+
+Para alcanzar los objetivos planteados, el proyecto se desarrollará mediante una estrategia incremental, organizada en etapas que permitan analizar la situación actual, diseñar la solución propuesta e implementar los componentes necesarios de manera controlada. Este enfoque busca mitigar riesgos, facilitar validaciones parciales y garantizar la continuidad operativa durante el proceso de modernización.
+
+En una primera etapa se realizará el relevamiento y análisis del proceso actual de facturación, incluyendo la gestión de líneas de crédito, las integraciones existentes y los puntos críticos asociados a tareas manuales, procesos batch y el intercambio de archivos FTP.
+
+Posteriormente, se avanzará con el diseño funcional y técnico de la nueva solución, definiendo la arquitectura modular de la solución, los flujos de integración con entidades bancarias, el modelo de datos y los mecanismos de seguridad.
+
+En una tercera etapa se llevará a cabo el desarrollo e implementación de los distintos componentes del sistema, contemplando los servicios necesarios para automatizar validaciones, procesar operaciones y registrar estados e incidencias.
+
+A continuación, se ejecutarán pruebas funcionales, técnicas y de integración, con el objetivo de validar el correcto funcionamiento de la solución, su estabilidad operativa y la comunicación con los sistemas involucrados.
+
+Finalmente, se prevé una etapa de puesta en marcha controlada, acompañada por tareas de seguimiento inicial, ajustes correctivos y evaluación de resultados obtenidos.
+
+En términos generales, el cronograma de trabajo contempla las siguientes fases: análisis y relevamiento, diseño de la solución, desarrollo e integración, pruebas integrales e implementación final.
+
+\section{Recursos preliminares}
+
+Para el desarrollo del presente proyecto se considera necesaria la disponibilidad de recursos humanos, tecnológicos y organizacionales que permitan llevar adelante las distintas etapas previstas.
+
+En relación con los recursos humanos, se requiere la participación de perfiles vinculados al análisis funcional y técnico, desarrollo de software, administración de bases de datos y usuarios referentes del negocio, quienes aportarán conocimiento sobre el proceso actual de facturación y validación crediticia.
+
+Respecto de los recursos tecnológicos, será necesario contar con entornos de desarrollo y prueba, acceso a bases de datos, herramientas de programación, servidores de aplicaciones y conectividad con los sistemas internos y externos involucrados. Asimismo, se prevé la utilización de herramientas de monitoreo, registro de errores y canales de notificación para el seguimiento operativo de la solución.
+
+Adicionalmente, será necesario disponer de documentación funcional y técnica de los sistemas existentes, así como información vinculada con interfaces bancarias, formatos de intercambio de datos y reglas de negocio actualmente vigentes.
+
+Finalmente, se requerirá la coordinación entre las áreas participantes, acceso a usuarios clave para las instancias de validación y disponibilidad de cronograma que contemple pruebas e implementación progresiva de la solución.

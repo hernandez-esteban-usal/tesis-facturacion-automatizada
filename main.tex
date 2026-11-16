@@ -10,7 +10,7 @@
 
 \documentclass[%
     language=spanish,   % spanish (por defecto) o english
-    guias=true,         % true: muestra las cajas de guía de la cátedra
+    guias=false,        % true: muestra las cajas de guía de la cátedra
                         % false: las oculta (usar para la ENTREGA FINAL)
     pdfa=false,         % true: genera PDF/A-2b (más lento; requiere LuaLaTeX)
 ]{usal-proyecto-final}
@@ -19,15 +19,16 @@
 % -------------------------------------------------------------
 % DATOS DEL TRABAJO  (completar)
 % -------------------------------------------------------------
-\title{Título del proyecto: qué se hace, para quién y dónde\\
-       en no más de veinte palabras}
+\title{Diseño e implementación de una solución personalizada para la
+       automatización de facturación con integración bancaria en una
+       empresa automotriz}
 \thesisHeader{Facultad de Ingeniería\\Proyecto Final de Ingeniería Informática}
 \academicYear{2026}
 % \graduationDate{17/11/2026} % (opcional) fecha de defensa
 
 % autor/a (para trabajos grupales, separar con \\ o \and)
-\author{Nombre Apellido}
-\authorEmail{nombre.apellido@usal.edu.ar}
+\author{Esteban Nicolas Hernandez}
+\authorEmail{hernandez.esteban@usal.edu.ar}
 
 % autoridades que figuran en la portada (verificar cargos vigentes)
 \decano{Walter Oscar Rodríguez Esquivel}{Decano, Facultad de Ingeniería}
@@ -36,8 +37,8 @@
 % \tutor{Nombre del tutor o tutora}{Cargo, Institución} % (opcional)
 
 % resumen / abstract
-\palabrasclave{palabra 1, palabra 2, palabra 3, palabra 4}
-\keywords{keyword 1, keyword 2, keyword 3, keyword 4}
+\palabrasclave{automatización de facturación, integración bancaria, API REST, unidades financiadas, líneas de crédito, trazabilidad}
+\keywords{invoicing automation, banking integration, REST API, financed vehicles, credit lines, traceability}
 
 % segunda página: declaración de originalidad
 \secondpage{\input{preliminares/segunda-pagina}}
@@ -91,15 +92,13 @@
 
     % apéndices: material producido por el autor (A, B, C...)
     \begin{appendices}
-        \input{apendices/A-encuesta-validacion}
-        \input{apendices/B-entrevista}
-        \input{apendices/C-detalles-tecnicos}
+        \input{apendices/A-entrevistas}
     \end{appendices}
 
     % anexos: material de terceros o externo (I, II...)
-    \begin{anexos}
-        \input{anexos/I-repositorios}
-    \end{anexos}
+    % \begin{anexos}
+    %     \input{anexos/I-repositorios}
+    % \end{anexos}
 
     % glosario, siglas y símbolos
     \glosarios

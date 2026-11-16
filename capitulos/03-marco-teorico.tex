@@ -1,59 +1,354 @@
 %!TEX root = ../main.tex
-% =============================================================
-%  CAPÍTULO 3 — MARCO TEÓRICO Y ESTADO DEL ARTE
-%                                       (Entrega 3 · 10 % · 28/7)
-% =============================================================
-
 \chapter{Síntesis de la literatura consultada}\label{cap:marco-teorico}
 
-\begin{guia}[Guía de la cátedra: qué se evalúa en este capítulo]
-\begin{enumerate}
-    \item \textbf{Estado del arte}: investigaciones nacionales,
-          internacionales y productos similares, por separado. De cada
-          trabajo: qué hizo y qué resultados obtuvo, con métricas.
-    \item \textbf{Brechas identificadas}: qué falta en lo existente y
-          justifica \emph{este} proyecto. Es lo que separa un estado del
-          arte de un listado. Incluir también los resultados negativos de
-          la literatura.
-    \item \textbf{Bases teóricas}: desarrollan las variables del título y su
-          relación. Cada concepto termina explicando cómo se usa en el
-          proyecto (teoría instrumental, no de relleno). Citas canónicas
-          antes que tutoriales.
-    \item \textbf{Marco conceptual}: conceptos que se nombran pero no se
-          desarrollan. Los términos del glosario se marcan con
-          \verb|\gls{}|, por ejemplo \gls{g:mvp} y \gls{prototipo}.
-    \item \textbf{Calidad bibliográfica}: papers, tesis y libros de
-          editoriales serias, con datos completos. Wikipedia y blogs restan.
-    \item \textbf{Entrevistas a especialistas} (si las hay): fecha, nombre,
-          cargo y aporte; transcripción en el apéndice~\ref{apx:entrevista}.
-\end{enumerate}
-Errores que la cátedra marca: falta de coherencia interna, bibliografía
-superficial, información irrelevante o redundante. Es uno de los
-capítulos más extensos (orientativo: 20 a 30 páginas).
-\end{guia}
+La comprensión y fundamentación del presente proyecto requiere analizar los antecedentes, enfoques y tecnologías vinculadas con la automatización de procesos administrativos y financieros, la integración entre sistemas empresariales y la comunicación con entidades bancarias.
 
-\completar{Desarrollo del capítulo.}
+El proceso analizado se desarrolla en el contexto de una empresa del sector automotriz, donde la validación de operaciones financiadas requiere el intercambio de información entre sistemas internos y entidades financieras. La participación de diferentes plataformas, tareas manuales e intercambios de archivos puede generar demoras operativas, errores en el procesamiento de la información y dificultades para realizar el seguimiento completo de cada operación.
 
-\section{\completar{Nombre de la sección}}
+En este capítulo se presenta una síntesis de la literatura académica, técnica y profesional consultada, con el objetivo de establecer una base conceptual y tecnológica que respalde la propuesta de mejora. La revisión abarca investigaciones nacionales e internacionales relacionadas con la automatización de procesos financieros, la integración de sistemas, la comunicación mediante interfaces de programación de aplicaciones, la trazabilidad de la información y el uso de arquitecturas modulares en entornos empresariales.
 
-\completar{Texto.}
+Asimismo, se analizan productos y soluciones existentes que ofrecen funcionalidades vinculadas con la automatización de tareas, la gestión de integraciones entre aplicaciones y la conectividad con entidades bancarias. Este análisis permite identificar características, ventajas y limitaciones de las alternativas disponibles, y considerar su aplicabilidad frente a las necesidades particulares del caso estudiado.
 
-\begin{table}[H]
-    \centering
-    \caption{Comparación de trabajos relevados (ejemplo de estructura)}
-    \label{tab:comparativa}
-    \small
-    \begin{tabularx}{\textwidth}{L L L L L}
-        \toprule
-        \tb{Trabajo} & \tb{Enfoque} & \tb{Datos} & \tb{Resultado} & \tb{Limitación} \\
-        \midrule
-        \citet{breiman2001} & Ensamble de árboles & Benchmarks UCI & Menor error que árboles individuales & No aborda series temporales \\
-        \citet{chen2016} & Boosting escalable & Kaggle, Higgs & Mejor precisión y velocidad que alternativas & Requiere ajuste de hiperparámetros \\
-        \completar{...} & & & & \\
-        \bottomrule
-    \end{tabularx}
-\end{table}
+Finalmente, se desarrolla el marco teórico y conceptual, en el cual se presentan y definen los principales conceptos funcionales y tecnológicos utilizados a lo largo del trabajo. Entre ellos se incluyen la automatización de procesos, la integración de sistemas, las API, los servicios web, la arquitectura modular, la trazabilidad, el intercambio de archivos mediante FTP, la gestión de excepciones y la validación de líneas de crédito. De esta manera, el capítulo proporciona los fundamentos necesarios para comprender el problema abordado y la solución propuesta.
 
-\subsection{\completar{Nombre de la subsección}}
+\section{Estado del arte}
 
-\completar{Texto.}
+\subsection{Investigación nacional}
+
+En Argentina, los antecedentes vinculados con la temática del presente proyecto se concentran en la automatización de procesos administrativos, el uso de interfaces de programación de aplicaciones, la integración entre sistemas y la modernización de plataformas bancarias. Si bien en los antecedentes relevados no se identificaron trabajos que aborden de manera conjunta la validación de operaciones financiadas, el intercambio de información con entidades bancarias y la trazabilidad de dicho proceso dentro de una empresa automotriz, los estudios analizados permiten fundamentar distintos componentes funcionales y tecnológicos de la propuesta.
+
+Uno de los antecedentes relacionados con la integración de sistemas es el trabajo de \citet{ornazabal2023}, titulado \emph{La factura electrónica y su automatización}. El autor desarrolla una solución orientada a automatizar la emisión de comprobantes electrónicos mediante la integración con servicios externos provistos por la Administración Federal de Ingresos Públicos (AFIP). Aunque el trabajo se encuentra centrado en la facturación electrónica, resulta relevante para el presente proyecto porque evidencia la posibilidad de conectar procesos internos de una organización con servicios externos para automatizar el intercambio de información. Asimismo, contempla el uso de servicios SOAP desde una API REST, lo que aporta una referencia para abordar la comunicación entre sistemas que utilizan tecnologías diferentes.
+
+En relación con la integración tecnológica, \citet{constanzo2022}, en el trabajo \emph{Usos y problemas de las APIs Web en la República Argentina}, analizan la utilización de APIs web por parte de desarrolladores y organizaciones del país. El estudio identifica el predominio de las APIs basadas en REST y señala desafíos vinculados con la documentación, la usabilidad, el mantenimiento y la evolución de estas interfaces. Este antecedente resulta especialmente adecuado para el proyecto, dado que la propuesta requiere establecer una comunicación ordenada, mantenible y segura entre los sistemas internos de la empresa y los servicios provistos por entidades externas, particularmente las entidades bancarias.
+
+Por otra parte, la tesina de \citet{barrera2023}, titulada \emph{Reingeniería de Sistema Bancario COBOL a Sistema Core Bancario Moderno}, aborda la modernización de un sistema bancario heredado mediante un proceso de reingeniería orientado a aplicaciones de core bancario. El trabajo analiza limitaciones asociadas a plataformas basadas en tecnologías antiguas, tales como dificultades de mantenimiento, baja flexibilidad para incorporar cambios y obstáculos para integrarse con nuevas aplicaciones. Su aporte al presente proyecto consiste en aportar elementos para analizar la importancia de contar con soluciones modulares e integrables, capaces de facilitar la interoperabilidad entre sistemas y la evolución futura de los procesos empresariales.
+
+En conjunto, los antecedentes nacionales relevados muestran la utilidad de automatizar procesos administrativos, integrar aplicaciones mediante API y modernizar entornos tecnológicos con dificultades de mantenimiento o interoperabilidad. Estos aportes resultan relevantes para el presente trabajo, ya que contribuyen a fundamentar el diseño de una solución orientada a reducir tareas manuales, mejorar la trazabilidad de las operaciones y optimizar el intercambio de información entre los sistemas internos de la empresa y las entidades bancarias.
+
+\subsection{Brechas identificadas en la investigación nacional}
+
+A partir de la revisión de los antecedentes nacionales, se identificaron trabajos vinculados con la automatización de procesos, el uso de APIs web, la integración con servicios externos y la modernización de sistemas bancarios. Sin embargo, los estudios analizados abordan estos aspectos de manera independiente o dentro de contextos organizacionales diferentes al de la empresa considerada en el presente proyecto.
+
+En los antecedentes nacionales relevados no se identificaron investigaciones que integren, dentro de una misma propuesta, la validación de operaciones financiadas, el intercambio de información entre sistemas internos y entidades bancarias, y la trazabilidad completa de cada operación. En particular, no se encontraron antecedentes orientados a reemplazar o mejorar flujos basados en tareas manuales e intercambio de archivos mediante una integración que permita conocer el estado de una operación desde su generación hasta la recepción y procesamiento de la respuesta bancaria.
+
+La principal brecha identificada se relaciona, por lo tanto, con la ausencia de propuestas adaptadas a un proceso empresarial que requiere coordinar reglas internas de validación, comunicación con entidades financieras y seguimiento de la información intercambiada. En respuesta a esta necesidad, el presente proyecto busca diseñar una solución que permita reducir intervenciones manuales, disminuir demoras operativas, mejorar la trazabilidad y facilitar la integración entre los sistemas de la organización y las entidades bancarias.
+
+\subsection{Investigación internacional}
+
+A nivel internacional, los antecedentes relevados se vinculan con la automatización de procesos financieros, la integración entre sistemas empresariales y entidades bancarias, y la aplicación de arquitecturas modulares en sistemas que requieren comunicación con múltiples servicios. Estos trabajos permiten identificar enfoques orientados a disminuir tareas repetitivas, mejorar el intercambio de información entre plataformas y facilitar el mantenimiento de soluciones que procesan un volumen significativo de operaciones.
+
+En Perú, \citet{barba2023}, en el trabajo \emph{Solución de automatización robótica para optimizar la conciliación bancaria y su integración con SAP ERP en alta carga transaccional}, proponen una solución de automatización robótica de procesos para optimizar la conciliación bancaria e integrar con un sistema ERP.
+
+La propuesta busca reducir la intervención manual en tareas repetitivas de procesamiento, validación y conciliación de información financiera, mediante la interacción entre el sistema administrativo de la organización y distintas entidades bancarias.
+
+Este antecedente resulta particularmente relevante para el presente proyecto, ya que evidencia los beneficios de automatizar procesos financieros que requieren intercambiar información entre sistemas empresariales y bancos. Asimismo, permite considerar la importancia de disminuir tareas manuales, estandarizar el procesamiento de datos y mantener un registro de las operaciones realizadas dentro de un flujo de integración.
+
+Por otro lado, \citet{canqui2021}, en el trabajo \emph{Microservicios como estrategia en la facturación electrónica}, analiza la aplicación de una arquitectura de microservicios en un sistema transaccional. La propuesta plantea la división de funcionalidades en servicios independientes, la utilización de un mecanismo centralizado de acceso y la comunicación mediante peticiones REST. Aunque el caso de estudio se encuentra vinculado con facturación electrónica, su principal aporte para el presente proyecto se relaciona con la adopción de una arquitectura modular.
+
+La propuesta de Canqui Ticona permite considerar la separación de responsabilidades dentro de una solución informática. En el caso analizado, las funciones asociadas a la recepción de información, la validación de operaciones financiadas, la comunicación con entidades bancarias, el registro de resultados y la gestión de excepciones podrían abordarse mediante componentes diferenciados. Esta organización facilitaría el mantenimiento, la escalabilidad y la incorporación futura de nuevas entidades bancarias o reglas de negocio.
+
+En conjunto, los antecedentes internacionales analizados muestran que la automatización de procesos financieros requiere integrar plataformas, reducir tareas manuales y establecer mecanismos confiables para el intercambio de información. Asimismo, evidencian que las arquitecturas modulares pueden facilitar la evolución y el mantenimiento de sistemas que deben comunicarse con aplicaciones empresariales y entidades externas. Estos aportes respaldan la propuesta desarrollada en el presente trabajo, orientada a mejorar la integración entre los sistemas internos de la empresa y las entidades bancarias, así como la trazabilidad de las operaciones financiadas.
+
+\subsection{Brechas identificadas en la investigación internacional}
+
+La revisión de los antecedentes internacionales permitió identificar propuestas relacionadas con la automatización de conciliaciones bancarias, la integración con sistemas ERP y la aplicación de arquitecturas de microservicios en sistemas transaccionales. Sin embargo, los trabajos analizados se concentran principalmente en aspectos particulares del problema, tales como la conciliación bancaria, la automatización de una tarea específica o la definición de una arquitectura tecnológica.
+
+En los antecedentes internacionales analizados no se identificó un trabajo que aborde de manera conjunta la validación de operaciones financiadas, el intercambio de información entre sistemas internos de una empresa y entidades bancarias, y la trazabilidad completa de cada operación dentro de un mismo flujo operativo. En particular, no se encontraron propuestas enfocadas específicamente en automatizar un proceso en el que intervienen reglas internas de negocio, archivos o servicios externos, respuestas bancarias y mecanismos de seguimiento de estados y excepciones.
+
+Asimismo, las soluciones relevadas responden a contextos organizacionales, tecnológicos y regulatorios diferentes al caso analizado. Por este motivo, no necesariamente pueden aplicarse de forma directa a las necesidades de una empresa del sector automotriz que requiere integrar sus sistemas internos con entidades financieras.
+
+En consecuencia, el presente proyecto busca aportar una solución adaptada a las características de la organización. La propuesta combina automatización, integración entre sistemas, comunicación con entidades bancarias y trazabilidad de las operaciones, con el propósito de reducir demoras, disminuir la intervención manual y facilitar el seguimiento de la información durante el proceso de validación de operaciones financiadas.
+
+\subsection{Productos similares}
+
+Además de los antecedentes académicos relevados, se analizaron soluciones tecnológicas disponibles en el mercado vinculadas con la automatización de procesos, la integración entre aplicaciones empresariales y la conectividad con entidades bancarias. El objetivo de este análisis consiste en identificar funcionalidades y enfoques que puedan resultar aplicables al caso estudiado, en el cual se requiere mejorar el intercambio de información entre los sistemas internos de la empresa y las instituciones financieras involucradas en la validación de operaciones financiadas.
+
+La comparación se realizó a partir de cinco criterios: la capacidad de integración con bancos y sistemas externos, la automatización de validaciones o tareas manuales, los mecanismos de intercambio de información mediante API o archivos, la trazabilidad de las operaciones y el manejo de excepciones conforme a reglas internas de negocio.
+
+Las soluciones seleccionadas no constituyen equivalentes directos de la propuesta desarrollada en este trabajo. UiPath se orienta principalmente a la automatización de tareas y flujos de trabajo; MuleSoft Anypoint Platform se especializa en la integración, administración y monitoreo de API; mientras que Embat se enfoca en la conectividad bancaria, la gestión de tesorería y la conciliación financiera. No obstante, el análisis de estas herramientas permite identificar componentes funcionales y técnicos relevantes para la solución propuesta.
+
+\subsubsection{UiPath}
+
+UiPath es una plataforma de automatización de procesos y automatización robótica de procesos. Permite configurar flujos de trabajo para ejecutar tareas repetitivas sobre aplicaciones, documentos y sistemas existentes. En ámbitos financieros y administrativos, ofrece capacidades vinculadas con la extracción de datos desde documentos, la validación de información, el procesamiento de transacciones, la coordinación de actividades entre personas y sistemas, y el tratamiento de excepciones.
+
+La plataforma puede interactuar con sistemas ERP, portales web, documentos electrónicos y otras aplicaciones empresariales sin requerir su reemplazo. Asimismo, sus conexiones permiten consumir API de aplicaciones externas y gestionar credenciales, como tokens OAuth o claves de API. UiPath Orchestrator centraliza la ejecución de automatizaciones y permite revisar trabajos, colas y registros, lo cual facilita el monitoreo y la resolución de incidentes \citep{uipath}.
+
+En relación con el caso estudiado, UiPath representa una alternativa para reducir tareas manuales vinculadas con consultas a sistemas internos, carga de datos, validación documental, verificación de estados y derivación de casos con inconsistencias. Sin embargo, la plataforma requiere que la organización diseñe y configure los flujos, las reglas de negocio y los mecanismos de integración necesarios. Por sí sola, no reemplaza la comunicación específica con los bancos ni incorpora de forma nativa la lógica de validación de crédito o de aprobación de operaciones financiadas.
+
+\subsubsection{MuleSoft Anypoint Platform}
+
+MuleSoft Anypoint Platform es una plataforma de integración empresarial y administración de API. Permite diseñar, implementar, proteger, monitorear y administrar interfaces de comunicación entre aplicaciones, servicios, bases de datos y sistemas empresariales. Entre sus capacidades se encuentran la aplicación de políticas, la administración de accesos, la autenticación, el cifrado, el control de tráfico y el análisis de métricas de uso y rendimiento de las API \citep{mulesoft}.
+
+Una de sus características principales es la posibilidad de conectar sistemas instalados localmente, servicios en la nube y aplicaciones externas mediante una capa de integración. Esto permite articular sistemas ERP, bases de datos, microservicios y servicios de terceros. Además de la integración basada en API, dispone de conectores para trabajar con archivos, directorios y protocolos asociados, como FTP o SFTP \citep{mulesoft}.
+
+Para el presente proyecto, MuleSoft resulta relevante como referencia para el diseño de una arquitectura de integración entre sistemas internos, entidades bancarias y servicios externos. Su análisis permite considerar la importancia de administrar las interfaces de comunicación de manera segura, mantenible y trazable.
+
+No obstante, MuleSoft no constituye un sistema bancario ni un motor de decisión crediticia. La plataforma proporciona herramientas para integrar y orquestar flujos, pero las reglas relacionadas con la validación de líneas de crédito, la aprobación o rechazo de operaciones financiadas y el tratamiento funcional de los errores deben desarrollarse de acuerdo con las necesidades particulares de la organización.
+
+\subsubsection{Embat}
+
+Embat es una plataforma orientada a la gestión de tesorería, pagos, conciliación y conectividad financiera. Su propuesta incluye la centralización de información bancaria, movimientos, saldos, pagos, conciliaciones y previsiones de liquidez \citep{embat}. Asimismo, ofrece integración bidireccional entre entidades bancarias, ERP y otras plataformas financieras: la información de cuentas por pagar y cobrar puede sincronizarse hacia Embat, mientras que los resultados de conciliación y los asientos contables pueden enviarse nuevamente al ERP.
+
+La plataforma declara una conectividad orientada prioritariamente a API, aunque también admite conexiones \emph{host-to-host}, EBICS, SWIFT y mecanismos basados en archivos cuando una integración por API no se encuentra disponible. Esta característica resulta relevante para el caso analizado, debido a que las entidades bancarias y los sistemas empresariales pueden ofrecer mecanismos de integración diferentes \citep{embat}.
+
+Embat aporta una referencia para comprender cómo una plataforma puede centralizar información proveniente de bancos y sistemas empresariales, reducir la carga manual de datos y mejorar la trazabilidad de las operaciones financieras. Además, incorpora conciliación automática y señala excepciones para los movimientos que no pueden asociarse automáticamente, lo que favorece el control y la revisión de casos particulares \citep{embat}.
+
+No obstante, su enfoque se orienta principalmente a tesorería, pagos, conciliación y conectividad financiera. No se identificó evidencia oficial de que administre específicamente reglas internas de crédito, cupos de financiación, documentación comercial o aprobación de operaciones financiadas. Por este motivo, Embat podría resolver parte de la comunicación bancaria y del seguimiento financiero, pero requeriría complementarse con otros componentes para cubrir el flujo completo propuesto en este trabajo.
+
+\subsubsection{Síntesis comparativa}
+
+La Tabla~\ref{tab:1} resume la comparación de las tres soluciones según los cinco criterios definidos e incluye, como referencia, la solución propuesta en este trabajo.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2161}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1938}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1803}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2141}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1956}}@{}}
+\caption{Comparación de productos similares según los criterios de análisis}\label{tab:1}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Criterios}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{UiPath}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MuleSoft Anypoint Platform}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Embat}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Solución propuesta}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\caption[]{Comparación de productos similares según los criterios de análisis (continuación)}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Criterios}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{UiPath}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MuleSoft Anypoint Platform}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Embat}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Solución propuesta}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Integración con bancos y sistemas externos & Parcial. Consume API externas y opera sobre ERP y portales existentes, sin conectores bancarios específicos & Alta. Conecta sistemas locales, servicios en la nube y aplicaciones de terceros; la lógica bancaria debe desarrollarse & Alta. Conectividad bancaria por API, host-to-host, EBICS, SWIFT y archivos. & Alta para el alcance definido. Integración directa con Forum y Santander sobre los sistemas existentes. \\
+Automatización de validaciones o tareas manuales & Alta. Orientada a automatizar tareas repetitivas, validaciones y procesamiento de transacciones. & Parcial. Orquesta flujos, pero las validaciones de negocio deben programarse. & Parcial. Automatiza la carga de información financiera y la conciliación. & Alta. Consulta automática de Alta. Consulta automática de crédito, detección de lotes completos e informe de facturas sin intervención del usuario \\
+Intercambio de información mediante API o archivos & API externas y, cuando no existen, interacción con aplicaciones y documentos. & API, archivos y protocolos como FTP o SFTP. & Prioritariamente API; archivos como alternativa. & API REST con ambas entidades, en reemplazo del archivo por FTP en Chile y de la planilla de Excel en Perú. \\
+Trazabilidad de las operaciones & Registro de trabajos, colas y ejecuciones en UiPath Orchestrator. & Monitoreo y métricas de uso y rendimiento de las API. & Trazabilidad de movimientos, pagos y conciliaciones. & Registro por unidad de la solicitud, la respuesta y el código HTTP, e indicador de unidad informada a la entidad. \\
+Manejo de excepciones conforme a reglas internas & Tratamiento de excepciones configurable; las reglas debe definirlas la organización. & No incluye reglas de crédito ni de operaciones financiadas; deben desarrollarse. & Señala excepciones de conciliación; sin reglas de crédito ni de operaciones financiadas. & Proceso nocturno que reenvía las unidades pendientes de informar, reenvío manual en Chile y validación de que cada solicitud de Perú corresponda a un mismo concesionario.. \\
+\end{longtable}
+
+El análisis permite observar que las soluciones existentes cubren partes específicas del problema. UiPath aporta mecanismos para automatizar tareas, validaciones y tratamiento de excepciones; MuleSoft permite estructurar, proteger, administrar y monitorear la integración entre aplicaciones; mientras que Embat ofrece funcionalidades de conectividad bancaria, tesorería, conciliación y trazabilidad financiera.
+
+Sin embargo, no se identificó una solución que integre de manera directa las reglas internas de validación de operaciones financiadas, el intercambio de información con entidades bancarias y el seguimiento requerido por el proceso particular de la empresa. Por ello, la propuesta del presente proyecto se orienta a diseñar una solución adaptada al contexto organizacional y tecnológico analizado, capaz de combinar integración, automatización, registro de estados y gestión de excepciones.
+
+\section{Marco teórico}
+
+\subsection{Integración entre empresas y entidades bancarias}
+
+La integración entre empresas y entidades bancarias consiste en el intercambio controlado de información financiera y operativa entre los sistemas internos de una organización y los sistemas provistos por una o varias instituciones financieras. Este intercambio puede incluir consultas de saldos y movimientos, envío de instrucciones de pago, recepción de confirmaciones, notificaciones de rechazo, reportes de cuentas, conciliación de transacciones y actualización de estados operativos. En consecuencia, la integración bancaria no se limita a establecer una conexión técnica, sino que requiere coordinar datos, procesos, identificadores y mecanismos de seguridad entre participantes con plataformas tecnológicas diferentes.
+
+Los mecanismos de integración pueden variar según las capacidades técnicas disponibles en cada entidad bancaria. Una alternativa es la utilización de interfaces de programación de aplicaciones o API, que permiten intercambiar solicitudes y respuestas de forma automatizada y, potencialmente, en tiempo real. Por ejemplo, una empresa podría enviar una solicitud de consulta, recibir una respuesta estructurada y actualizar el estado de una operación en su sistema interno. Sin embargo, la disponibilidad, alcance y condiciones de uso de las API dependen de cada institución financiera. Por ello, una solución empresarial debe contemplar que no todas las entidades ofrecerán los mismos recursos, formatos ni niveles de inmediatez.
+
+Cuando no se dispone de una API, o cuando el proceso requiere procesar grandes cantidades de operaciones de forma periódica, puede utilizarse el intercambio de archivos. Bajo esta modalidad, una organización genera archivos estructurados con información de pagos, cobros, movimientos o solicitudes, los transmite mediante un canal acordado y luego procesa los archivos de respuesta recibidos desde el banco. Este enfoque es apropiado para procesos por lotes, como el envío diario de operaciones o la recepción de extractos bancarios. No obstante, requiere establecer controles sobre la estructura de los archivos, la frecuencia de intercambio, la validación de datos, la detección de duplicados y la confirmación de recepción.
+
+En el ámbito financiero, los estándares de mensajería contribuyen a mejorar la interoperabilidad entre las partes. ISO 20022 constituye un estándar internacional para el desarrollo de mensajes financieros y propone una metodología común, un diccionario central de componentes de negocio y reglas de diseño para la generación de mensajes. Su objetivo es favorecer el uso de semánticas compartidas en comunicaciones financieras, independientemente del dominio de negocio, la red de comunicación o la contraparte involucrada \citep{iso20022}. Esto resulta relevante para integraciones entre empresas y bancos, ya que el uso de datos estructurados y significados previamente definidos puede facilitar el procesamiento de pagos, reportes de cuentas, conciliaciones y confirmaciones operativas \citep{iso20022}.
+
+La adopción de estándares no implica que todas las integraciones empresariales deban implementarse de la misma manera. Una API puede utilizar formatos propios definidos por un banco, mientras que un canal de archivos puede utilizar estructuras acordadas bilateralmente o mensajes basados en estándares financieros. Incluso ISO 20022 puede utilizarse en distintos contextos técnicos: sus modelos de mensaje pueden transformarse en esquemas XML o ASN.1 y existen recomendaciones técnicas para aplicarlo en interfaces web y esquemas JSON \citep{iso20022rmg2025}.
+
+La necesidad de integrar información bancaria se relaciona también con la trazabilidad de las operaciones. Cada solicitud enviada debería poder asociarse con una respuesta, un estado y un registro interno que permita identificar su evolución. En procesos financieros, la información recibida desde una entidad bancaria puede indicar que una operación fue aceptada, rechazada, observada, procesada parcialmente o pendiente de confirmación. Por esta razón, una integración adecuada debe considerar identificadores únicos, registros de fecha y hora, estados intermedios, mecanismos de reintento y procedimientos para tratar casos excepcionales.
+
+En Argentina, estas integraciones se desarrollan dentro de un ecosistema en el que el Sistema Nacional de Pagos comprende instrumentos, reglas, infraestructuras y participantes que permiten realizar pagos minoristas y mayoristas. El Banco Central de la República Argentina señala que, entre otros instrumentos, los pagos minoristas incluyen transferencias, tarjetas, débitos directos, débitos inmediatos y cheques. Este contexto evidencia que la comunicación entre empresas y entidades financieras debe contemplar tanto los requerimientos técnicos de cada canal como las reglas operativas aplicables al tipo de operación involucrada \citep{bcra_snp}.
+
+En relación con el presente proyecto, la integración entre la empresa y las entidades bancarias constituye un componente central para consultar, transmitir y registrar información vinculada con operaciones financiadas. No obstante, la conexión técnica por sí sola no determina la aprobación de una operación. La información recibida desde los bancos debe complementarse con las reglas internas de negocio de la organización, tales como la validación de cupo, la situación del cliente, la documentación requerida y las condiciones comerciales vigentes.
+
+\subsection{API e intercambio de información}
+
+Una interfaz de programación de aplicaciones, denominada API por sus siglas en inglés, puede entenderse como un mecanismo que permite que un sistema exponga datos, recursos o funcionalidades para ser utilizados por otros sistemas de manera controlada. En las arquitecturas de integración, las API actúan como contratos entre los sistemas que ofrecen información o servicios y aquellos que los consumen. Cuando una API adopta el estilo arquitectónico REST, organiza sus interacciones alrededor de recursos identificables mediante URI y utiliza la semántica de los métodos HTTP para expresar operaciones sobre dichos recursos \citep{fielding2000,fielding2022}.
+
+HTTP es un protocolo de nivel de aplicación basado en solicitudes y respuestas. RFC 9110 lo define como un protocolo sin estado, lo que implica que la semántica de cada solicitud puede interpretarse de forma independiente, sin requerir que el servidor mantenga una sesión persistente para comprenderla \citep{fielding2022}. Entre los métodos utilizados con mayor frecuencia se encuentran GET, para consultar recursos; POST, para enviar información o solicitar procesamiento; PUT, para crear o reemplazar la representación de un recurso; y DELETE, para solicitar la eliminación de un recurso. Asimismo, HTTP emplea códigos de estado para comunicar el resultado de una operación, tales como 200 para una respuesta satisfactoria, 201 para la creación de un recurso, 400 para una solicitud inválida, 401 para indicar que se requiere autenticación, 403 para denegar el acceso y 500 para informar un error interno del servidor \citep{fielding2022}.
+
+JSON es un formato textual de intercambio de datos estructurado. RFC 8259 lo define como un formato independiente del lenguaje de programación, diseñado para representar estructuras como objetos, listas y valores simples de forma interoperable entre sistemas \citep{bray2017}. En las API basadas en HTTP, JSON es utilizado con frecuencia debido a que facilita la serialización y deserialización de información entre aplicaciones desarrolladas con tecnologías diferentes. Su uso resulta apropiado cuando las integraciones requieren formatos legibles, simples de procesar y compatibles con distintas plataformas.
+
+No toda integración, sin embargo, debe implementarse mediante API. El intercambio de archivos continúa siendo una alternativa apropiada cuando se procesan grandes volúmenes de información por lotes, cuando los sistemas no admiten comunicación en tiempo real o cuando la infraestructura de una entidad externa solo ofrece mecanismos de intercambio diferido. En estos casos, las organizaciones deben acordar formatos, periodicidad de envío, mecanismos de validación y procedimientos de confirmación para los archivos intercambiados. Si bien esta modalidad puede ser más simple de adoptar en determinados entornos, generalmente proporciona menor inmediatez y menor granularidad de control que una integración mediante API.
+
+La seguridad forma parte esencial del diseño de una API. NIST SP 800-63B-4 establece lineamientos técnicos para la autenticación digital y la gestión de autenticadores en interacciones con sistemas de información en red \citep{nist2025}. Por otra parte, OWASP identifica riesgos frecuentes en APIs, entre ellos fallas de autorización a nivel de objeto, autenticación deficiente, configuraciones inseguras, acceso no restringido a flujos de negocio sensibles y consumo inseguro de API externas \citep{owasp2023}. Por lo tanto, una API no solo debe permitir el intercambio de información, sino también aplicar mecanismos de autenticación, autorización, validación de datos, protección de credenciales y control de acceso basado en el principio de mínimo privilegio. En una arquitectura de integración financiera, estos elementos resultan particularmente relevantes debido al carácter sensible de los datos y a la necesidad de mantener trazabilidad sobre las operaciones realizadas.
+
+\subsection{Integración de sistemas empresariales}
+
+La integración de sistemas empresariales puede definirse como el conjunto de enfoques, arquitecturas y mecanismos que permiten interconectar aplicaciones, bases de datos, servicios y procesos heterogéneos para que operen de manera coordinada. En una organización, esta integración resulta especialmente importante cuando intervienen sistemas ERP, aplicaciones internas de distintas áreas y servicios externos, debido a que los datos deben circular entre plataformas con estructuras y tecnologías diferentes, manteniendo su consistencia y trazabilidad \citep{hohpe2003}. Desde esta perspectiva, la integración no consiste únicamente en conectar sistemas, sino en habilitar interoperabilidad funcional y semántica entre componentes que pueden haber sido diseñados de manera independiente.
+
+Uno de los principales problemas de los sistemas aislados es la duplicación de datos y tareas. Cuando cada aplicación mantiene información propia sin compartir estados con los demás sistemas, pueden producirse inconsistencias, reprocesos manuales y demoras operativas. Por ejemplo, un mismo dato puede cargarse en diferentes sistemas, lo cual incrementa el riesgo de error y dificulta la identificación de una versión confiable de la información. \citet{hohpe2003} señalan que la integración empresarial busca resolver el problema de las denominadas islas de automatización, en las que cada aplicación puede funcionar adecuadamente de forma local, pero el proceso de negocio completo pierde eficiencia. En contextos organizacionales complejos, esta fragmentación también dificulta la conciliación, la auditoría y el seguimiento de las operaciones de extremo a extremo.
+
+La integración puede implementarse mediante comunicación síncrona o asíncrona. En la comunicación síncrona, un sistema solicita un servicio y espera una respuesta antes de continuar con su procesamiento. Esta modalidad puede ser apropiada cuando una operación requiere una confirmación inmediata, aunque introduce una mayor dependencia temporal entre los sistemas involucrados. En cambio, en la comunicación asíncrona el sistema emisor puede continuar su ejecución sin esperar la respuesta de manera inmediata. Esta alternativa favorece el desacople temporal, la escalabilidad y la tolerancia ante interrupciones de los sistemas receptores. \citet{hohpe2003} destacan el valor de la mensajería asíncrona cuando los sistemas no operan con la misma disponibilidad ni velocidad de procesamiento.
+
+Los patrones de integración constituyen un aporte central para el diseño de soluciones empresariales. \citet{hohpe2003} sistematizan mecanismos para el enrutamiento, filtrado, transformación, agregación y distribución de mensajes entre aplicaciones. En la práctica, estos patrones permiten adaptar formatos de datos, mediar entre protocolos distintos y coordinar procesos distribuidos. Esta dimensión es relevante cuando una empresa necesita vincular sistemas ERP, aplicaciones de gestión y servicios financieros, dado que dichos componentes no necesariamente comparten el mismo modelo de datos, formato de intercambio ni interfaz técnica. En estos casos, la capa de integración cumple una función de mediación, transformación y normalización de la información.
+
+No obstante, la integración empresarial también presenta desafíos. Un alto nivel de acoplamiento puede reducir la flexibilidad de la arquitectura y dificultar modificaciones futuras. Del mismo modo, el mantenimiento de flujos integrados requiere establecer contratos de datos, monitorear las comunicaciones, gestionar errores y definir responsabilidades entre las áreas involucradas. La consistencia de la información también puede verse afectada por retrasos en la propagación de eventos, por mensajes duplicados o por alteraciones en el orden de recepción. Por ello, la integración debe considerarse no sólo como un problema técnico, sino también como una capacidad organizacional que requiere gobernanza, estándares y un diseño adecuado \citep{hohpe2003}.
+
+\subsection{Automatización de procesos financieros}
+
+La automatización de procesos financieros consiste en la aplicación de sistemas de información para ejecutar, de manera parcial o total, actividades operativas que anteriormente requerían intervención manual. Entre estas actividades se encuentran la recepción y carga de datos, la validación de información, el procesamiento de solicitudes, el intercambio de archivos, la actualización de estados, la conciliación de movimientos y la generación de notificaciones. Su propósito es mejorar la eficiencia operativa, reducir tiempos de procesamiento y disminuir la repetición de tareas administrativas.
+
+En entornos empresariales, los procesos financieros suelen involucrar información proveniente de diversas fuentes, como sistemas ERP, aplicaciones comerciales, bases de datos internas y entidades bancarias. Cuando estas actividades se realizan de forma manual, es frecuente que una misma información deba consultarse, transcribirse o verificarse en más de un sistema. Esta situación puede generar demoras, inconsistencias y dificultades para identificar el estado actualizado de una operación. Por ello, la automatización permite que los datos sean procesados y transferidos entre sistemas de acuerdo con flujos previamente definidos, evitando tareas repetitivas de carga o consulta.
+
+La automatización puede implementarse mediante procesamiento en tiempo real o por lotes. El procesamiento en tiempo real resulta adecuado cuando una operación requiere una respuesta inmediata o cuando es necesario actualizar un estado al momento de recibir información desde otro sistema. Por ejemplo, una solicitud de validación puede enviarse a una entidad externa y registrar su respuesta en el sistema interno de la empresa. En cambio, el procesamiento por lotes permite agrupar operaciones y tratarlas en determinados intervalos de tiempo, como ocurre con el envío periódico de archivos, la importación de movimientos bancarios o la ejecución programada de controles. La elección entre ambos enfoques depende de las necesidades operativas, la criticidad del proceso, los volúmenes de información y las capacidades técnicas de los sistemas involucrados.
+
+En los procesos financieros, la automatización también puede aplicarse a la conciliación de información. La conciliación consiste en comparar datos provenientes de diferentes fuentes para determinar si existe correspondencia entre ellos. Por ejemplo, pueden contrastarse movimientos informados por una entidad bancaria con registros de pagos, cobros, facturas u operaciones almacenadas en los sistemas internos de la empresa. Las herramientas de conciliación automática permiten procesar grandes volúmenes de movimientos y aplicar reglas de coincidencia para asociarlos con los registros correspondientes. Sin embargo, los casos que no cumplen las condiciones definidas deben ser identificados y derivados para revisión posterior \citep{oracle_recon}.
+
+La automatización requiere definir criterios claros sobre qué actividades pueden ejecutarse sin intervención humana y cuáles deben permanecer sujetas a revisión. Las validaciones automáticas pueden verificar, por ejemplo, la presencia de datos obligatorios, el formato de los campos, la existencia de información duplicada, la vigencia de una operación o el cumplimiento de determinadas condiciones de negocio. No obstante, cuando se detectan datos incompletos, inconsistencias, rechazos o situaciones no previstas, el sistema debe registrar el evento y permitir su tratamiento mediante un procedimiento de excepción. De este modo, la automatización no reemplaza por completo la intervención humana, sino que permite concentrarla en los casos que requieren análisis o decisión.
+
+Asimismo, en integraciones que intercambian información con sistemas externos, la automatización debe contemplar la posibilidad de fallas temporales de comunicación o demoras en la recepción de respuestas. Los patrones de integración recomiendan establecer mecanismos controlados de reintento, identificadores de correlación e idempotencia para evitar que una misma operación produzca efectos duplicados si una solicitud debe enviarse nuevamente. Un receptor idempotente puede reconocer mensajes repetidos y procesarlos sin alterar el resultado previamente obtenido, lo cual es especialmente relevante en procesos financieros, donde una duplicación podría afectar registros, validaciones o instrucciones operativas \citep{hohpe2003}.
+
+En relación con el presente proyecto, la automatización permite reducir la dependencia de tareas manuales en el intercambio de información entre los sistemas internos de la empresa y las entidades bancarias. De manera particular, puede aplicarse a la recepción de operaciones, la validación inicial de datos, la consulta o envío de información bancaria, la actualización de estados y el registro de resultados. Sin embargo, la decisión final sobre una operación financiada debe mantenerse vinculada a las reglas de negocio definidas por la organización, las cuales serán abordadas en el apartado siguiente.
+
+\subsection{Reglas del negocio y validaciones de operaciones financiadas}
+
+Las reglas de negocio son condiciones, políticas, restricciones o criterios definidos por una organización para determinar cómo debe comportarse un proceso y qué decisiones pueden adoptarse frente a una situación determinada. Estas reglas representan conocimiento propio del negocio y pueden estar relacionadas con requisitos comerciales, financieros, operativos o de control interno. En el contexto de las operaciones financiadas, permiten establecer bajo qué condiciones una solicitud puede continuar su tratamiento, ser aprobada, ser rechazada o derivarse a una revisión manual.
+
+Es importante distinguir las reglas de negocio de la lógica técnica de integración. La capa técnica tiene como finalidad recibir, transformar, enviar y registrar información entre aplicaciones, bases de datos, sistemas internos y entidades bancarias. Por su parte, la capa de negocio interpreta esa información de acuerdo con los criterios definidos por la organización. Por ejemplo, una integración puede consultar o recibir datos vinculados con una operación, pero la decisión de avanzar en el proceso dependerá de reglas tales como la disponibilidad de cupo, la vigencia de la documentación o el cumplimiento de condiciones comerciales.
+
+Esta separación contribuye a evitar que las políticas de negocio queden dispersas o incorporadas directamente en conectores, scripts o componentes específicos de comunicación. Cuando una regla se encuentra mezclada con la implementación técnica, cualquier modificación de una condición comercial puede requerir cambios en componentes que no deberían ser responsables de la toma de decisiones. En cambio, al diferenciar ambas responsabilidades, es posible modificar los criterios de validación sin alterar necesariamente el mecanismo utilizado para intercambiar información con un sistema externo.
+
+La validación de operaciones financiadas puede requerir la evaluación de múltiples condiciones. Entre ellas, de manera general, pueden considerarse la identificación correcta del cliente, la integridad de los datos de la solicitud, la disponibilidad de una línea o cupo de crédito, la vigencia de la documentación, la consistencia de los datos bancarios y el cumplimiento de condiciones comerciales establecidas por la empresa. Los criterios específicos no son universales: deben ser definidos por las áreas responsables y pueden variar según el tipo de operación, la entidad financiera involucrada y las políticas internas vigentes.
+
+Las reglas también pueden organizarse de forma secuencial. En primer lugar, es posible aplicar validaciones básicas de integridad, como verificar que los campos obligatorios estén completos y que los valores tengan el formato esperado. Luego, pueden evaluarse condiciones de negocio, como la existencia de cupo disponible o la vigencia de la solicitud. Finalmente, si se cumplen las condiciones necesarias, la operación puede enviarse al sistema o entidad correspondiente; de lo contrario, puede ser rechazada, marcada como observada o derivada a revisión manual. Este enfoque permite que el sistema comunique con claridad el resultado de cada control y mantenga un registro de los motivos de cada decisión.
+
+La automatización de decisiones basadas en reglas puede apoyarse en tablas de decisión. Estas estructuras permiten representar de manera ordenada la relación entre condiciones de entrada y resultados esperados. El estándar Decision Model and Notation, conocido como DMN, fue diseñado para especificar decisiones y reglas de negocio de forma precisa y comprensible para perfiles de negocio, análisis y desarrollo. Además, permite modelar decisiones mediante tablas que pueden ser revisadas y, según la implementación, validadas o ejecutadas por sistemas de información \citep{omg_dmn}.
+
+\subsection{Trazabilidad de operaciones}
+
+La trazabilidad es la capacidad de reconstruir el recorrido de una operación a través de las diferentes etapas de un proceso. En un sistema de información, implica registrar qué operación fue recibida, cuándo fue procesada, qué validaciones se realizaron, qué sistemas intervienen, cuál fue el resultado obtenido y qué acciones posteriores se ejecutaron. En procesos que integran sistemas internos con entidades externas, como entidades bancarias, la trazabilidad permite relacionar una solicitud inicial con sus respuestas, cambios de estado, errores y eventuales intervenciones manuales.
+
+Para lograr trazabilidad, cada operación debe contar con un identificador único que permita reconocerla durante todo su ciclo de vida. Este identificador puede asociarse con otros datos relevantes, como la fecha y hora de creación, el sistema de origen, la entidad destinataria, el estado actual, el resultado de las validaciones y los mensajes de respuesta recibidos. De este modo, si una operación presenta una demora, un rechazo o una inconsistencia, es posible consultar su historial y determinar en qué etapa se produjo la situación. La trazabilidad contribuye, por lo tanto, a mejorar la visibilidad del proceso y a facilitar la identificación de problemas operativos.
+
+Los registros de eventos, comúnmente denominados \emph{logs}, constituyen un elemento central para la trazabilidad y la auditoría. Un log registra eventos producidos en los sistemas, aplicaciones, servicios, redes o componentes de integración. Estos registros pueden utilizarse para investigar incidentes, detectar errores operativos, analizar comportamientos anómalos y conservar evidencia sobre acciones realizadas por usuarios o sistemas automatizados. \citet{kent2006} definen la gestión de logs como el proceso de generar, transmitir, almacenar, acceder y disponer datos de registro, con el propósito de facilitar su análisis y utilización posterior.
+
+En el caso de una integración financiera, los logs no deberían limitarse a registrar errores técnicos. También es conveniente registrar eventos relevantes del proceso, como la recepción de una operación, el inicio y resultado de una validación, el envío de una solicitud a un sistema externo, la recepción de una respuesta, el cambio de estado y la derivación de un caso a revisión manual. Sin embargo, estos registros deben diseñarse evitando la exposición de datos financieros sensibles, datos personales, contraseñas, claves API, tokens de acceso u otras credenciales. El nivel de detalle debe ser suficiente para permitir el seguimiento y la auditoría, pero respetando las políticas de seguridad y protección de la información de la organización.
+
+La auditoría se relaciona con la posibilidad de verificar, mediante evidencia registrada, que un proceso fue ejecutado según las reglas y responsabilidades establecidas. En este sentido, una pista de auditoría puede incluir información sobre quién inició o modificó una operación, qué sistema realizó una acción automática, qué condición produjo una aprobación o un rechazo y cuándo ocurrió cada evento. Este tipo de información resulta relevante para investigar diferencias entre registros internos y respuestas externas, resolver reclamos y demostrar el cumplimiento de los controles definidos para el proceso.
+
+No todas las operaciones pueden finalizar correctamente de forma automática. La gestión de excepciones comprende los mecanismos aplicados cuando el flujo previsto no puede completarse debido a una situación no esperada o que requiere análisis adicional. Entre las excepciones frecuentes se encuentran datos incompletos o inválidos, falta de respuesta de un servicio externo, errores de comunicación, respuestas con formato incorrecto, rechazos por parte de una entidad bancaria, inconsistencias entre sistemas y detección de operaciones duplicadas. Una arquitectura adecuada debe reconocer estas situaciones, registrar su ocurrencia y evitar que queden sin seguimiento.
+
+Cuando se detecta una excepción, el sistema puede aplicar diferentes acciones según el tipo de problema. Si se trata de una falla temporal de comunicación, podría ejecutarse un reintento controlado. Si la información recibida es incompleta o inconsistente, la operación puede quedar en estado observado hasta que se corrijan los datos. Si se recibe un rechazo externo o se incumple una regla de negocio, la operación puede registrarse como rechazada o derivarse a análisis por parte del área responsable. En todos los casos, es necesario conservar el motivo de la excepción y el historial de acciones realizadas, de modo que el tratamiento posterior sea verificable.
+
+Asimismo, el tratamiento de excepciones debe contemplar el riesgo de duplicación. En procesos distribuidos, una operación puede volver a enviarse debido a una interrupción, una demora o la ausencia de confirmación de recepción. Para evitar que un mensaje repetido genere efectos duplicados, es necesario utilizar identificadores únicos, controles de correlación y mecanismos de idempotencia. \citet{hohpe2003} describen al receptor idempotente como un patrón que permite reconocer y administrar mensajes repetidos, evitando que su reprocesamiento altere el resultado ya alcanzado. Esta consideración es especialmente importante en procesos financieros, donde una duplicación puede producir registros inconsistentes o afectar operaciones sensibles.
+
+En relación con el presente proyecto, la trazabilidad, la auditoría y la gestión de excepciones permiten que la integración entre los sistemas internos de la empresa y las entidades bancarias sea controlable y verificable. La solución propuesta debe registrar el recorrido de cada operación, conservar información sobre las validaciones efectuadas y diferenciar los casos procesados correctamente de aquellos que requieren una intervención posterior. De esta manera, la automatización no se limita a ejecutar tareas, sino que también proporciona mecanismos para supervisar, analizar y resolver situaciones que no pueden ser tratadas de forma completamente automática.
+
+\subsection{Seguridad de la información en integraciones financieras}
+
+La seguridad de la información comprende el conjunto de medidas técnicas, organizacionales y procedimentales orientadas a proteger los datos y los sistemas frente a accesos no autorizados, alteraciones, pérdidas o interrupciones. En una integración financiera, esta protección resulta especialmente relevante debido a que los procesos pueden involucrar información comercial, datos de clientes, datos bancarios, estados de operaciones, credenciales de acceso y resultados de validaciones. Por este motivo, la seguridad no debe considerarse un componente adicional al final del desarrollo, sino un requisito que debe contemplarse durante el diseño de la integración.
+
+Uno de los principios fundamentales de la seguridad de la información es preservar la confidencialidad, la integridad y la disponibilidad de los datos. La \textbf{confidencialidad} procura que la información solo sea accesible para usuarios, sistemas o procesos autorizados. La \textbf{integridad} busca asegurar que los datos no sean modificados de forma indebida durante su almacenamiento, procesamiento o transmisión. Por último, la \textbf{disponibilidad} se refiere a que los servicios y la información puedan utilizarse cuando sean necesarios por los procesos autorizados. En una integración entre sistemas empresariales y entidades bancarias, estos principios se relacionan con la protección de las comunicaciones, la exactitud de los datos transmitidos y la continuidad operativa de los servicios involucrados.
+
+La autenticación y la autorización son mecanismos diferentes, aunque complementarios. La autenticación permite verificar la identidad de un usuario, sistema o servicio que intenta acceder a un recurso. La autorización, en cambio, determina qué acciones puede realizar esa identidad una vez autenticada. Por ejemplo, una aplicación puede autenticarse mediante una credencial, un certificado, un token o una clave de acceso; luego, las políticas de autorización definen si puede consultar una operación, enviar una solicitud, actualizar un estado o acceder a información determinada. NIST establece lineamientos para la autenticación digital y la gestión de autenticadores en interacciones con sistemas de información en red \citep{nist2025}.
+
+En las integraciones basadas en API, es necesario aplicar controles de acceso acordes a la sensibilidad de cada recurso o función expuesta. Esto implica que no basta con validar que una aplicación posea credenciales válidas: también se debe verificar que esté autorizada a operar sobre el recurso solicitado. OWASP identifica, entre los principales riesgos para API, las fallas de autorización a nivel de objeto, los problemas de autenticación, la autorización deficiente sobre propiedades o funciones, las configuraciones inseguras y el acceso sin restricciones a flujos de negocio sensibles \citep{owasp2023}. Por ello, una solución de integración financiera debe validar los permisos en cada operación y no asumir que la autenticación inicial autoriza todas las acciones posteriores.
+
+La protección de la información durante su transmisión requiere utilizar canales seguros. Transport Layer Security, conocido como TLS, proporciona mecanismos criptográficos para proteger los datos intercambiados a través de redes, aportando confidencialidad, integridad y autenticidad en la comunicación entre cliente y servidor. En consecuencia, las comunicaciones entre sistemas internos, API y servicios de entidades externas deberían realizarse mediante protocolos seguros, como HTTPS sobre TLS, conforme a las políticas de seguridad y requisitos técnicos definidos por las organizaciones involucradas. NIST publica lineamientos sobre la selección, configuración y uso de implementaciones TLS \citep{mckay2019}.
+
+La gestión adecuada de credenciales constituye otro aspecto esencial. Las claves de API, contraseñas, tokens, certificados y secretos de conexión permiten autenticar sistemas y acceder a recursos protegidos. Por lo tanto, no deben incorporarse directamente en el código fuente, archivos públicos de configuración, mensajes de error ni registros de eventos. En su lugar, deben almacenarse y administrarse mediante mecanismos protegidos definidos por la organización, con acceso limitado a los servicios o personas que realmente los requieran. Este enfoque se relaciona con el principio de mínimo privilegio, según el cual cada usuario, proceso o componente debe contar solamente con los permisos necesarios para cumplir su función.
+
+Asimismo, la seguridad de una integración requiere validar la información recibida antes de procesarla. Los datos provenientes de formularios, archivos, API o sistemas externos pueden contener valores incompletos, formatos no esperados o información maliciosa. Por ello, es necesario verificar campos obligatorios, tipos de datos, longitudes, formatos permitidos y reglas de consistencia antes de incorporar la información a los sistemas internos. OWASP incluye el consumo inseguro de API externas y las configuraciones incorrectas entre los riesgos que pueden comprometer a una aplicación que depende de servicios integrados \citep{owasp2023}.
+
+También es necesario aplicar seguridad a los mecanismos de trazabilidad y auditoría. Los registros de eventos son útiles para reconstruir el recorrido de una operación, investigar incidentes y detectar comportamientos anómalos; sin embargo, no deben exponer información sensible. En particular, se deben evitar registrar contraseñas, tokens, claves de acceso, números completos de cuentas, datos personales innecesarios u otra información que pueda facilitar un acceso indebido. Cuando el proceso requiera conservar identificadores o datos de referencia, la organización deberá definir el nivel de detalle adecuado, considerando tanto las necesidades de auditoría como las políticas internas de protección de información.
+
+En relación con el presente proyecto, la seguridad de la información debe aplicarse de manera transversal a la comunicación entre sistemas internos y entidades bancarias. La solución propuesta debe contemplar mecanismos de autenticación, autorización, protección de las comunicaciones, administración segura de credenciales, validación de datos y registro controlado de eventos. Estas medidas no garantizan por sí solas la ausencia de incidentes, pero contribuyen a disminuir riesgos y a proteger la información utilizada durante el procesamiento de operaciones financiadas.
+
+\subsection{Arquitectura modular de sistemas}
+
+La arquitectura de un sistema define la organización general de sus componentes, las responsabilidades asignadas a cada uno y la forma en que se comunican entre sí. En proyectos de integración empresarial, una arquitectura adecuada resulta importante debido a que intervienen diversos sistemas, fuentes de información, reglas de negocio y servicios externos. Por ello, el diseño debe facilitar la evolución de la solución, el mantenimiento de sus componentes y la incorporación de nuevos requerimientos sin afectar innecesariamente el funcionamiento del conjunto.
+
+Una arquitectura modular organiza el sistema en componentes con responsabilidades específicas y delimitadas. Cada módulo se concentra en una función determinada, como recibir operaciones, validar datos, aplicar reglas de negocio, comunicarse con entidades externas, registrar eventos o gestionar excepciones. Esta separación permite reducir el acoplamiento entre las partes del sistema, es decir, evita que un cambio en un componente obligue a modificar todos los demás. De esta manera, la solución puede ser más comprensible, mantenible y adaptable ante cambios en los procesos o en las tecnologías utilizadas.
+
+En una integración entre sistemas internos y entidades bancarias, la modularidad permite diferenciar las funciones técnicas de las funciones propias del negocio. Por ejemplo, un módulo de integración bancaria puede encargarse de establecer la comunicación con una API, procesar archivos o interpretar respuestas externas. En cambio, un módulo de reglas de negocio puede evaluar si una operación cumple con las condiciones necesarias para continuar su procesamiento. Del mismo modo, un componente de trazabilidad puede registrar los eventos y cambios de estado, mientras que otro módulo puede encargarse del tratamiento de excepciones. Esta separación evita que las responsabilidades queden concentradas en un único componente de difícil mantenimiento.
+
+Los patrones de integración empresarial propuestos por \citet{hohpe2003} permiten comprender la importancia de separar los mecanismos de comunicación de la lógica específica de cada aplicación. Por ejemplo, los canales de mensajería, transformadores, filtros y enrutadores basados en contenido permiten que los sistemas intercambien información sin requerir que cada componente conozca los detalles internos de los demás. Así, una capa de integración puede adaptar formatos, dirigir mensajes hacia distintos destinos o procesar respuestas externas, mientras los sistemas de origen y destino conservan sus responsabilidades principales.
+
+La modularidad también favorece la reutilización de componentes. Un mecanismo de autenticación, un validador de datos, un servicio de registro de eventos o un módulo de notificaciones puede ser utilizado por diferentes procesos sin necesidad de desarrollar la misma funcionalidad en cada caso. Esto contribuye a mantener criterios uniformes dentro de la solución y puede reducir esfuerzos de desarrollo y mantenimiento. Sin embargo, la reutilización debe diseñarse de forma cuidadosa, ya que un componente compartido también puede convertirse en un punto crítico si concentra demasiadas funciones o dependencias.
+
+Dentro de una arquitectura modular, la comunicación entre componentes puede realizarse de manera síncrona o asíncrona. La comunicación síncrona resulta apropiada cuando un módulo necesita una respuesta inmediata para continuar el proceso, como podría ocurrir durante una validación puntual. La comunicación asíncrona, por otra parte, permite desacoplar temporalmente los componentes mediante mensajes, colas o eventos. Esta última alternativa puede ser útil cuando existen demoras, interrupciones temporales o diferentes velocidades de procesamiento entre los sistemas involucrados. La elección del mecanismo de comunicación debe responder a las necesidades del proceso y no únicamente a una preferencia tecnológica.
+
+Los microservicios constituyen una alternativa posible para implementar una arquitectura modular. Este enfoque propone desarrollar servicios pequeños e independientes, cada uno asociado a una capacidad específica del negocio y con la posibilidad de desplegarse de manera separada. No obstante, una arquitectura basada en microservicios también incorpora desafíos, como la necesidad de monitorear múltiples servicios, coordinar comunicaciones distribuidas, gestionar credenciales entre componentes y mantener la consistencia de los datos. Por esta razón, no debe asumirse que los microservicios son siempre la solución más conveniente. En procesos de alcance limitado o con baja complejidad, una aplicación modular con componentes claramente separados puede resultar suficiente y más sencilla de administrar.
+
+Para el presente proyecto, una arquitectura modular podría contemplar, de manera conceptual, los siguientes componentes:
+
+\begin{itemize}
+\item Módulo de recepción de operaciones.
+\item Módulo de validación de datos.
+\item Módulo de reglas de negocio.
+\item Módulo de integración con entidades bancarias.
+\item Módulo de registro de estados y trazabilidad.
+\item Módulo de gestión de excepciones.
+\item Módulo de notificaciones o alertas.
+\end{itemize}
+Esta división no representa necesariamente la arquitectura técnica definitiva de la solución, sino una forma de organizar sus responsabilidades principales. Su propósito es facilitar que los procesos de validación e integración puedan evolucionar de manera controlada, evitando que los cambios en una entidad bancaria, una regla de negocio o un mecanismo de notificación afecten de forma directa a todos los componentes del sistema.
+
+En síntesis, una arquitectura modular permite estructurar una solución de integración mediante componentes con funciones diferenciadas y relaciones definidas. Para un proceso que vincula sistemas internos de una empresa con entidades bancarias, este enfoque contribuye a separar la lógica de negocio de la comunicación técnica, mejorar la mantenibilidad, facilitar la trazabilidad y gestionar con mayor claridad los cambios futuros.
+
+\section{Marco conceptual}
+
+El marco conceptual tiene como finalidad definir los principales términos funcionales y tecnológicos utilizados en el desarrollo del proyecto. La precisión de estos conceptos permite comprender el problema analizado, las características de la solución propuesta y las decisiones de diseño que se abordarán en los capítulos siguientes.
+
+\subsection{ERP}
+
+Un sistema de planificación de recursos empresariales, conocido como ERP por sus siglas en inglés, es una aplicación que permite administrar e integrar procesos internos de una organización. Generalmente, centraliza información relacionada con ventas, compras, stock, facturación, clientes, proveedores, contabilidad y finanzas. En el presente proyecto, el ERP representa uno de los sistemas internos desde los cuales se originan, consultan o actualizan datos vinculados con operaciones financiadas.
+
+\subsection{Integración de sistemas}
+
+La integración de sistemas es el proceso mediante el cual dos o más aplicaciones, servicios, bases de datos o plataformas intercambian información y coordinan acciones. Su propósito es evitar que los datos permanezcan aislados en sistemas independientes y permitir que los procesos operativos se ejecuten de manera coordinada. En este proyecto, la integración conecta los sistemas internos de la empresa con sistemas o servicios proporcionados por entidades bancarias.
+
+\subsection{Entidad bancaria}
+
+Una entidad bancaria es una institución financiera que ofrece servicios relacionados con cuentas, transferencias, pagos, cobranzas, créditos, financiamiento y otros productos financieros. Dentro del proyecto, las entidades bancarias representan sistemas externos con los cuales la empresa necesita intercambiar información vinculada con operaciones financieras. Dicho intercambio puede realizarse mediante API, archivos estructurados u otros canales de comunicación autorizados.
+
+\subsection{API}
+
+Una interfaz de programación de aplicaciones, o API, es un mecanismo que permite que un sistema ofrezca funcionalidades o datos para ser utilizados por otros sistemas de manera controlada. Una API define cómo debe realizarse una solicitud, qué información debe enviarse y qué respuesta puede recibir el sistema que la utiliza. En el proyecto, una API puede utilizarse para consultar información, enviar solicitudes, recibir confirmaciones y actualizar estados de operaciones.
+
+\subsection{Operación financiada}
+
+Una operación financiada es una transacción comercial o financiera cuyo cumplimiento involucra la utilización de fondos, crédito, líneas de financiamiento u otros mecanismos otorgados o administrados por una entidad financiera. Para el presente proyecto, una operación financiada puede requerir la validación de datos del cliente, documentación, condiciones comerciales, disponibilidad de cupo y respuesta de una entidad bancaria antes de continuar su procesamiento.
+
+\subsection{Línea o cupo de crédito}
+
+La línea o cupo de crédito es el monto máximo de financiamiento que una entidad financiera o una organización habilita para un cliente, operación o conjunto de operaciones. Este límite permite determinar la capacidad disponible para solicitar, aprobar o procesar una operación financiada. En el proyecto, la disponibilidad de cupo puede constituir una condición de validación antes de continuar con una solicitud.
+
+\subsection{Regla de negocio}
+
+Una regla de negocio es una condición, política o criterio definido por la organización para determinar cómo debe tratarse una operación. Estas reglas permiten establecer, por ejemplo, si una solicitud puede continuar su procesamiento, debe quedar observada, requiere documentación adicional o debe ser rechazada. En el presente proyecto, las reglas de negocio se aplican para evaluar operaciones financiadas conforme a las condiciones internas de la empresa.
+
+\subsection{Trazabilidad}
+
+La trazabilidad es la capacidad de seguir y reconstruir el recorrido de una operación dentro de un sistema o proceso. Implica conservar información sobre su origen, fecha de recepción, validaciones realizadas, cambios de estado, comunicaciones con sistemas externos y resultado final. La trazabilidad permite identificar qué ocurrió con una operación y en qué etapa se produjo un error, demora, rechazo o cambio de estado.
+
+\subsection{Gestión de excepciones}
+
+La gestión de excepciones comprende las acciones aplicadas cuando una operación no puede ser procesada según el flujo previsto. Una excepción puede originarse por datos incompletos, errores de comunicación, falta de respuesta de una entidad bancaria, rechazo de una solicitud, duplicación de información o incumplimiento de una regla de negocio. La gestión adecuada de excepciones requiere registrar el problema, asignar un estado y, cuando corresponda, derivar el caso a revisión manual.
+
+\subsection{Conciliación bancaria}
+
+La conciliación bancaria es el proceso de comparar los movimientos registrados por una empresa con la información proporcionada por una entidad bancaria. Su finalidad es identificar coincidencias, diferencias, operaciones pendientes o errores entre los registros internos y los movimientos informados por el banco. En el proyecto, la conciliación puede utilizarse para verificar el estado de pagos, cobros u otras operaciones financieras procesadas.
+
+\subsection{Autenticación}
+
+La autenticación es el proceso mediante el cual un sistema verifica la identidad de un usuario, aplicación o servicio antes de permitir el acceso a un recurso. Puede realizarse mediante mecanismos como usuario y contraseña, claves de API, tokens, certificados digitales u otros métodos de identificación. En una integración bancaria, la autenticación permite comprobar que el sistema que realiza una solicitud es quien afirma ser.
+
+\subsection{Autorización}
+
+La autorización es el mecanismo que determina qué acciones puede realizar un usuario, aplicación o servicio una vez que su identidad fue autenticada. Por ejemplo, un sistema puede estar autorizado para consultar el estado de una operación, pero no para modificarla o eliminarla. En el proyecto, la autorización permite limitar el acceso a funcionalidades e información según los permisos definidos por la organización y las entidades involucradas.
+
+\subsection{JSON}
+
+JSON, sigla de \emph{JavaScript Object Notation}, es un formato de texto utilizado para representar e intercambiar datos estructurados entre sistemas. Organiza la información mediante pares de clave y valor, listas y otros tipos de datos simples. En las integraciones basadas en API, JSON es utilizado con frecuencia para enviar solicitudes y recibir respuestas de manera comprensible para distintas aplicaciones.
+
+\subsection{Procesamiento por lotes}
+
+El procesamiento por lotes es una modalidad en la cual un conjunto de operaciones se agrupa para ser procesado en un momento determinado o en intervalos previamente establecidos. Por ejemplo, una empresa puede enviar un archivo diario con múltiples operaciones de pago o recibir periódicamente un archivo con movimientos bancarios. A diferencia del procesamiento en tiempo real, esta modalidad no requiere que cada operación sea tratada inmediatamente después de generarse.

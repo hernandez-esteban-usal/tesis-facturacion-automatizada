@@ -1,44 +1,118 @@
 %!TEX root = ../main.tex
-% GLOSARIO: términos que necesitan definición dentro del documento.
-%
-% Definir:   \newglossaryentry{clave}{name={Término}, description={Definición}}
-% Usar:      \gls{clave}      -> Término (con enlace al glosario)
-%            \Gls{clave}      -> Término (con mayúscula inicial)
-%            \glspl{clave}    -> plural
-% Solo aparecen en el glosario los términos que se usan en el texto.
-% Las siglas van en siglas.tex y los símbolos en simbolos.tex.
+% Glosario: \newglossaryentry{clave}{name={Término}, description={Definición}}
 
-\newglossaryentry{g:mvp}{
-    name={producto mínimo viable},
-    description={Versión funcional de un producto con el conjunto mínimo
-    de características que entrega valor real a los usuarios y permite
-    aprender de su uso. A diferencia de un prototipo, no simula: funciona}
+\newglossaryentry{g:casamatriz}{
+    name={Casa matriz},
+    description={Entidad central de un concesionario, a la que la entidad bancaria asigna la línea de crédito. Sus sucursales facturan contra el crédito disponible de la casa matriz}
 }
 
-\newglossaryentry{prototipo}{
-    name={prototipo},
-    description={Versión preliminar de un sistema construida para validar
-    una idea, un flujo o una interfaz. Puede simular partes del
-    comportamiento y no está pensada para operar en producción}
+\newglossaryentry{g:concesionario}{
+    name={Concesionario},
+    description={Empresa que comercializa los vehículos de la automotriz y cuyas compras se financian mediante una línea de crédito otorgada por una entidad bancaria}
 }
 
-\newglossaryentry{stakeholder}{
-    name={parte interesada},
-    description={Persona, grupo u organización que puede afectar o verse
-    afectada por el proyecto: usuarios, clientes, patrocinadores,
-    reguladores y el propio equipo}
+\newglossaryentry{g:correodedespacho}{
+    name={Correo de despacho},
+    description={Notificación automática que envía VH Connect cuando un lote de facturación se completa, con el detalle de las unidades facturadas y su número de factura}
 }
 
-\newglossaryentry{exposicion}{
-    name={exposición al riesgo},
-    description={Producto de la probabilidad de ocurrencia de un riesgo por
-    su impacto. Se usa para ordenar la matriz de riesgos y decidir cuáles
-    se tratan primero}
+\newglossaryentry{g:cr08cr12}{
+    name={CR08 / CR12},
+    description={Pantallas de VH Legacy para consultar y actualizar el crédito disponible de cada concesionario. Originalmente, CR08 correspondía a unidades pesadas y CR12 a livianas; con el proyecto, CR08 concentra ambas}
 }
 
-\newglossaryentry{g:van}{
-    name={valor actual neto},
-    description={Suma de los flujos de caja futuros de un proyecto
-    descontados a una tasa que refleja su riesgo, menos la inversión
-    inicial. Un valor positivo indica que el proyecto crea valor}
+\newglossaryentry{g:desembolso}{
+    name={Desembolso},
+    description={Pago que realiza la entidad bancaria a la automotriz por una unidad facturada, con cargo a la línea de crédito del concesionario}
 }
+
+\newglossaryentry{g:du13}{
+    name={DU13},
+    description={Pantalla de VH Legacy desde la que se genera el pedido de facturación de las unidades y se envía a SAI}
+}
+
+\newglossaryentry{g:homebanking}{
+    name={Home banking},
+    description={Portal web de una entidad bancaria a través del cual sus clientes consultan información y realizan operaciones}
+}
+
+\newglossaryentry{g:legalidaddefactura}{
+    name={Legalidad de factura},
+    description={Confirmación de que la factura fue validada por el organismo fiscal correspondiente. SAI la comunica a VH Connect y es la condición para informar la factura a la entidad bancaria}
+}
+
+\newglossaryentry{g:lineadecredito}{
+    name={Línea de crédito},
+    description={Monto máximo de financiamiento que una entidad bancaria otorga a un concesionario para la compra de unidades. También denominada cupo de crédito}
+}
+
+\newglossaryentry{g:lotedefacturacion}{
+    name={Lote de facturación},
+    description={Conjunto de unidades facturadas en una misma operación, identificado por un número único. Su finalización dispara el correo de despacho y el informe a la entidad bancaria}
+}
+
+\newglossaryentry{g:payload}{
+    name={Payload},
+    description={Contenido de datos que se envía en una solicitud o se recibe en una respuesta de una API}
+}
+
+\newglossaryentry{g:periododerepago}{
+    name={Período de repago},
+    description={Tiempo necesario para que los flujos netos del proyecto recuperen la inversión inicial}
+}
+
+\newglossaryentry{g:planillasantander}{
+    name={Planilla (Santander)},
+    description={Conjunto de facturas informadas a Santander que debe aprobarse en el home banking de la entidad para que se realice el desembolso}
+}
+
+\newglossaryentry{g:procesamientoporlotes}{
+    name={Procesamiento por lotes},
+    description={Modalidad en la que un conjunto de operaciones se agrupa para procesarse en un momento determinado, en lugar de tratarse una por una al generarse}
+}
+
+\newglossaryentry{g:procesonocturnodereintento}{
+    name={Proceso nocturno de reintento},
+    description={Proceso programado de VH Connect que, cada noche, vuelve a enviar a la entidad bancaria las facturas que permanecen sin informar}
+}
+
+\newglossaryentry{g:sai}{
+    name={SAI},
+    description={Aplicación intermedia de la empresa (South America Invoicing) que recibe los pedidos de facturación y comunica a VH Connect la legalidad de las facturas}
+}
+
+\newglossaryentry{g:sistemalegado}{
+    name={Sistema legado},
+    description={Sistema que continúa en uso pese a estar desarrollado con tecnologías anteriores. En este trabajo, VH Legacy}
+}
+
+\newglossaryentry{g:tasadedescuento}{
+    name={Tasa de descuento},
+    description={Rentabilidad mínima exigida a un proyecto, utilizada para expresar flujos futuros en valor actual}
+}
+
+\newglossaryentry{g:tokendeacceso}{
+    name={Token de acceso},
+    description={Credencial temporal que emite una entidad bancaria tras autenticar a la aplicación y que debe incluirse en las solicitudes posteriores}
+}
+
+\newglossaryentry{g:unidadfinanciada}{
+    name={Unidad financiada},
+    description={Vehículo cuya compra por parte del concesionario se financia con una línea de crédito bancaria}
+}
+
+\newglossaryentry{g:unidadeslivianaspesadas}{
+    name={Unidades livianas / pesadas},
+    description={Clasificación de los vehículos según su tipo, que en Chile determinaba líneas de crédito y pantallas de consulta separadas}
+}
+
+\newglossaryentry{g:vhconnect}{
+    name={VH Connect},
+    description={Aplicación moderna de la empresa, desarrollada en Java 21 con Spring Boot, que concentra la integración con las entidades bancarias para el informe de facturas}
+}
+
+\newglossaryentry{g:vhlegacy}{
+    name={VH Legacy},
+    description={Aplicación legada de facturación de vehículos, desarrollada en Java 6 con JavaServer Faces, desde la que el usuario consulta el crédito y genera los pedidos de facturación. La sigla VH corresponde a Vehicle Invoicing; se utilizó la H en lugar de la I porque la sigla VI ya estaba asignada a otra aplicación de la empresa}
+}
+

@@ -1,10 +1,10 @@
 %!TEX root = ../main.tex
-% Abstract in English (~250 words). Keywords are set in main.tex
-% with \keywords{...}. Must be a faithful translation of the Resumen.
-
 \begin{abstract}
 
-\completar{Abstract, around 250 words: a faithful translation of the
-Resumen.}
+This Final Project addresses the invoicing process for financed vehicle units at an automotive company operating in South America, where each invoice depends on the credit line that a financial institution grants to the dealership. Before this project, the process relied largely on manual tasks: credit balances were checked on the banks' home banking portals or received by email and then typed into internal systems, invoiced units were notified through manually written emails, and in Peru the file required by the bank was prepared by hand in Excel. In Chile, invoices were reported to the financial institution through a file transferred via FTP, which provided no immediate response for each invoice. This approach was slow, error-prone and offered little traceability.
+
+The solution integrates the company's internal systems with the REST APIs of the financial institutions in Chile and Peru, following a modular architecture built on top of an existing legacy system. The legacy application queries and updates credit availability, while a new Java 21 and Spring Boot service reports invoices to each institution, notifies users when an invoicing batch is complete and automatically resends units still pending to be reported. Every interaction with the banks is recorded per vehicle, including the request, the response and the HTTP status.
+
+Unlike the market tools analyzed, which cover isolated parts of the problem, the solution integrates credit inquiry, reporting to the institutions and tracking of each operation into a single flow, without replacing the existing systems. The results show that the manual loading of credit balances and the preparation of the bank file in Peru were eliminated, with an estimated saving of approximately 442 hours of manual work per year, and that the process gained traceability and visibility. Remaining limitations include a manual data-entry step in Peru, the absence of a test environment at one of the banks and limited monitoring capabilities.
 
 \end{abstract}

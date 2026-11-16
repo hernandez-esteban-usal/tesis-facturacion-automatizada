@@ -16,3 +16,9 @@
 
 % moneda: \usd{77200} -> USD 77.200
 \newcommand{\usd}[1]{USD~#1}
+
+% --- compatibilidad con el contenido migrado ---
+\usepackage{calc}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% imprime todos los términos del glosario y todas las siglas definidas
+\glsaddall

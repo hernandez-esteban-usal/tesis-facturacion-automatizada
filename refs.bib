@@ -1,149 +1,205 @@
 % =============================================================
-%  BIBLIOGRAFÍA
-%  Estilo: APA (biblatex-apa). Citas en el texto:
-%    \citep{clave}   -> (Breiman, 2001)
-%    \citet{clave}   -> Breiman (2001)
-%    \citep[p.~12]{clave}
-%
-%  Regla de la cátedra: toda referencia con datos completos
-%  (autor, título, año, revista/editorial, volumen y páginas o DOI/URL).
-%  Para recursos en línea, siempre urldate (fecha de consulta).
-%  Wikipedia y blogs restan puntos; preferir papers, libros y tesis.
-%  Verificar cada entrada en la fuente original (una cita inventada por
-%  una IA es una falta grave).
-%
-%  Gestor recomendado: Zotero o JabRef exportando a BibLaTeX.
+%  BIBLIOGRAFÍA — estilo APA (biblatex-apa + biber)
 % =============================================================
 
-
-% ---- artículo de revista (con DOI) ----
-@article{breiman2001,
-  author  = {Breiman, Leo},
-  title   = {Random Forests},
-  journal = {Machine Learning},
-  year    = {2001},
-  volume  = {45},
-  number  = {1},
-  pages   = {5--32},
-  doi     = {10.1023/A:1010933404324},
+@online{bcra_snp,
+  author    = {{Banco Central de la República Argentina}},
+  shortauthor = {BCRA},
+  title     = {Sistema Nacional de Pagos},
+  url       = {https://www.bcra.gob.ar/sistema-nacional-de-pagos/},
 }
 
-@article{pedregosa2011,
-  author  = {Pedregosa, Fabian and Varoquaux, Ga{\"e}l and Gramfort, Alexandre and Michel, Vincent and Thirion, Bertrand and Grisel, Olivier and Blondel, Mathieu and Prettenhofer, Peter and Weiss, Ron and Dubourg, Vincent and Vanderplas, Jake and Passos, Alexandre and Cournapeau, David and Brucher, Matthieu and Perrot, Matthieu and Duchesnay, {\'E}douard},
-  title   = {Scikit-learn: Machine Learning in {Python}},
-  journal = {Journal of Machine Learning Research},
-  year    = {2011},
-  volume  = {12},
-  pages   = {2825--2830},
-  url     = {https://jmlr.org/papers/v12/pedregosa11a.html},
+@thesis{barba2023,
+  author      = {Barba Vásquez, J. J. and Camargo Espinoza, J. R.},
+  title       = {Solución de automatización robótica para optimizar la conciliación bancaria y su integración con {SAP ERP} en alta carga transaccional},
+  type        = {Tesis de grado},
+  institution = {Universidad Peruana de Ciencias Aplicadas},
+  year        = {2023},
+  publisher   = {Repositorio Académico UPC},
+  url         = {http://hdl.handle.net/10757/670915},
 }
 
-% ---- artículo en actas de congreso ----
-@inproceedings{chen2016,
-  author    = {Chen, Tianqi and Guestrin, Carlos},
-  title     = {{XGBoost}: A Scalable Tree Boosting System},
-  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
-  year      = {2016},
-  pages     = {785--794},
-  publisher = {ACM},
-  address   = {San Francisco, CA, USA},
-  doi       = {10.1145/2939672.2939785},
+@thesis{barrera2023,
+  author      = {Barrera, J. J.},
+  title       = {Reingeniería de sistema bancario {COBOL} a sistema core bancario moderno},
+  type        = {Tesis de grado},
+  institution = {Universidad Nacional de La Plata},
+  year        = {2023},
+  publisher   = {SEDICI},
+  url         = {https://sedici.unlp.edu.ar/handle/10915/152115},
 }
 
-@inproceedings{lundberg2017,
-  author    = {Lundberg, Scott M. and Lee, Su-In},
-  title     = {A Unified Approach to Interpreting Model Predictions},
-  booktitle = {Advances in Neural Information Processing Systems 30 (NIPS 2017)},
-  year      = {2017},
-  pages     = {4765--4774},
-  publisher = {Curran Associates},
-  url       = {https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions},
+@report{bray2017,
+  author      = {Bray, T.},
+  title       = {The {JavaScript} Object Notation ({JSON}) data interchange format},
+  number      = {RFC 8259},
+  institution = {RFC Editor},
+  year        = {2017},
+  doi         = {10.17487/RFC8259},
 }
 
-% ---- libros ----
-@book{sommerville2016,
-  author    = {Sommerville, Ian},
-  title     = {Software Engineering},
-  edition   = {10},
-  year      = {2016},
-  publisher = {Pearson},
-  address   = {Harlow},
-  isbn      = {978-0-13-394303-0},
+@online{bumeran2026,
+  author    = {{Bumeran}},
+  title     = {Ofertas de empleo: analista contable},
+  titleaddon = {Portal de empleo},
+  year      = {2026},
+  url       = {https://www.bumeran.com.ar},
 }
 
-@book{hernandezsampieri2014,
-  author    = {Hern{\'a}ndez Sampieri, Roberto and Fern{\'a}ndez Collado, Carlos and Baptista Lucio, Pilar},
-  title     = {Metodolog{\'i}a de la investigaci{\'o}n},
-  edition   = {6},
-  year      = {2014},
-  publisher = {McGraw-Hill},
-  address   = {M{\'e}xico D.F.},
-  isbn      = {978-1-4562-2396-0},
+@thesis{canqui2021,
+  author      = {Canqui Ticona, J. A.},
+  title       = {Microservicios como estrategia en la facturación electrónica},
+  type        = {Trabajo académico},
+  institution = {Universidad Mayor de San Andrés},
+  year        = {2021},
 }
 
-@book{pmi2021,
-  author    = {{Project Management Institute}},
-  title     = {A Guide to the Project Management Body of Knowledge ({PMBOK} Guide)},
-  edition   = {7},
-  year      = {2021},
-  publisher = {Project Management Institute},
-  address   = {Newtown Square, PA},
-  isbn      = {978-1-62825-664-2},
+@article{constanzo2022,
+  author  = {Constanzo, M. and Casas, S. I. and Vidal, G. B. and Cruz, D.},
+  title   = {Usos y problemas de las {APIs} Web en la República Argentina},
+  journal = {Revista Tecnología y Ciencia},
+  number  = {44},
+  pages   = {79--97},
+  year    = {2022},
+  doi     = {10.33414/rtyc.44.79-97.2022},
 }
 
-@book{nielsen1993,
-  author    = {Nielsen, Jakob},
-  title     = {Usability Engineering},
-  year      = {1993},
-  publisher = {Academic Press},
-  address   = {Boston},
-  isbn      = {978-0-12-518406-9},
+@dataset{damodaran2026,
+  author    = {Damodaran, A.},
+  title     = {Cost of equity and capital ({US})},
+  publisher = {NYU Stern School of Business},
+  year      = {2026},
+  url       = {https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/wacc.html},
 }
 
-% ---- tesis (indicar programa e institución) ----
-@thesis{funes2025,
-  author      = {Funes, Norman},
-  title       = {{CASSIE}: Comprehensive Analysis System for Sensing Imminent Ecosystem-changes},
-  type        = {Proyecto Final de Ingenier{\'i}a Inform{\'a}tica},
-  institution = {Universidad del Salvador, Facultad de Ingenier{\'i}a},
+@online{dcuba2026,
+  author = {{Departamento de Computación, Universidad de Buenos Aires}},
+  title  = {Computación y datos: indicadores sobre los puestos más demandados},
+  year   = {2026},
+  url    = {https://www.dc.uba.ar/computacion-y-datos-indicadores-sobre-los-puestos-mas-demandados/},
+}
+
+@online{embat,
+  author = {{Embat}},
+  title  = {Bank connectivity},
+  url    = {https://www.embat.io/en/bank-connectivity/},
+}
+
+@thesis{fielding2000,
+  author      = {Fielding, R. T.},
+  title       = {Architectural styles and the design of network-based software architectures},
+  type        = {phdthesis},
+  institution = {University of California, Irvine},
+  year        = {2000},
+  url         = {https://ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf},
+}
+
+@report{fielding2022,
+  author      = {Fielding, R. T. and Nottingham, M. and Reschke, J.},
+  title       = {{HTTP} semantics},
+  number      = {RFC 9110},
+  institution = {RFC Editor},
+  year        = {2022},
+  doi         = {10.17487/RFC9110},
+}
+
+@book{hohpe2003,
+  author    = {Hohpe, G. and Woolf, B.},
+  title     = {Enterprise integration patterns: Designing, building, and deploying messaging solutions},
+  publisher = {Addison-Wesley},
+  year      = {2003},
+}
+
+@online{iso20022,
+  author = {{ISO 20022}},
+  title  = {About {ISO} 20022},
+  url    = {https://www.iso20022.org/about-iso-20022},
+}
+
+@report{iso20022rmg2025,
+  author      = {{ISO 20022 Registration Management Group}},
+  title       = {{ISO} 20022 and web {APIs}: An implementation best practices white paper},
+  type        = {White paper},
+  institution = {ISO 20022 Registration Management Group},
+  date        = {2025-06-10},
+  url         = {https://www.iso20022.org/sites/default/files/media/file/ISO_20022_and_Web_APIs_An_Implementation_Best_Practices_White_Paper_10June2025.pdf},
+}
+
+@report{kent2006,
+  author      = {Kent, K. and Souppaya, M.},
+  title       = {Guide to computer security log management},
+  number      = {NIST Special Publication 800-92},
+  institution = {National Institute of Standards and Technology},
+  year        = {2006},
+  doi         = {10.6028/NIST.SP.800-92},
+}
+
+@report{mckay2019,
+  author      = {McKay, K. and Cooper, D. A.},
+  title       = {Guidelines for the selection, configuration, and use of {Transport Layer Security} ({TLS}) implementations},
+  number      = {NIST Special Publication 800-52 Revision 2},
+  institution = {National Institute of Standards and Technology},
+  year        = {2019},
+  doi         = {10.6028/NIST.SP.800-52r2},
+}
+
+@online{mulesoft,
+  author = {{MuleSoft}},
+  title  = {Anypoint Platform documentation},
+  url    = {https://docs.mulesoft.com/},
+}
+
+@report{nist2025,
+  author      = {{National Institute of Standards and Technology}},
+  shortauthor = {NIST},
+  title       = {Digital identity guidelines: Authentication and authenticator management},
+  number      = {NIST Special Publication 800-63B-4},
+  institution = {National Institute of Standards and Technology},
   year        = {2025},
-  address     = {Buenos Aires},
+  doi         = {10.6028/NIST.SP.800-63B-4},
 }
 
-% ---- documentación o sitio en línea (siempre con urldate) ----
-@online{postgresqldocs,
-  author  = {{PostgreSQL Global Development Group}},
-  title   = {{PostgreSQL} 16 Documentation},
-  year    = {2024},
-  url     = {https://www.postgresql.org/docs/16/},
-  urldate = {2026-03-10},
+@online{omg_dmn,
+  author      = {{Object Management Group}},
+  shortauthor = {OMG},
+  title       = {Decision Model and Notation ({DMN})},
+  url         = {https://www.omg.org/dmn/},
 }
 
-% ---- PLANTILLAS para otros tipos (descomentar y completar) ----
-%
-% @report{clave,
-%   author      = {{Instituto Nacional de Estad{\'i}stica y Censos}},
-%   title       = {T{\'i}tulo del informe},
-%   type        = {Informe t{\'e}cnico},
-%   institution = {INDEC},
-%   year        = {2025},
-%   url         = {https://...},
-%   urldate     = {2026-03-10},
-% }
-%
-% @software{clave,
-%   author  = {Apellido, Nombre},
-%   title   = {Nombre del repositorio o herramienta},
-%   version = {1.2.0},
-%   year    = {2026},
-%   url     = {https://github.com/usuario/repositorio},
-%   urldate = {2026-03-10},
-% }
-%
-% @misc{clave,
-%   author       = {Apellido, Nombre},
-%   title        = {T{\'i}tulo del recurso},
-%   howpublished = {Entrevista personal},
-%   year         = {2026},
-%   note         = {Realizada el 10 de marzo de 2026},
-% }
+@dataset{openqube2026,
+  author    = {{Openqube}},
+  title     = {Resultados de la encuesta de sueldos de diciembre-febrero 2026},
+  publisher = {Sysarmy},
+  year      = {2026},
+  url       = {https://sueldos.openqube.io/encuesta-sueldos-2026.01/},
+}
+
+@online{oracle_recon,
+  author      = {{Oracle}},
+  title       = {Automatic reconciliation},
+  organization = {Oracle Financials Cloud},
+  url         = {https://docs.oracle.com/en/cloud/saas/financials/25c/fappp/automatic-reconciliation.html},
+}
+
+@thesis{ornazabal2023,
+  author      = {Ornazabal, L.},
+  title       = {La factura electrónica y su automatización},
+  type        = {Práctica profesional supervisada},
+  institution = {Universidad Nacional del Noroeste de la Provincia de Buenos Aires},
+  year        = {2023},
+  publisher   = {Repositorio Institucional UNNOBA},
+  url         = {http://repositorio.unnoba.edu.ar/xmlui/handle/23601/565},
+}
+
+@online{owasp2023,
+  author = {{OWASP Foundation}},
+  title  = {{OWASP API} security top 10---2023},
+  year   = {2023},
+  url    = {https://owasp.org/API-Security/editions/2023/en/0x11-t10/},
+}
+
+@online{uipath,
+  author = {{UiPath}},
+  title  = {UiPath documentation},
+  url    = {https://docs.uipath.com/},
+}

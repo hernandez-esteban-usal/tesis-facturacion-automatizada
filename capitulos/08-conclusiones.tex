@@ -1,54 +1,151 @@
 %!TEX root = ../main.tex
-% =============================================================
-%  CAPÍTULO 8 — IMPLICANCIAS, CONCLUSIONES Y RECOMENDACIONES
-%                                       (Entrega 8 · 5 % · 20/10)
-% =============================================================
+\chapter{Implicaciones, conclusiones y recomendaciones}\label{cap:conclusiones}
 
-\chapter{Implicancias, conclusiones y recomendaciones}\label{cap:conclusiones}
+El presente capítulo interpreta los resultados expuestos en el Capítulo 7 a la luz de la hipótesis y los objetivos planteados en el Capítulo 1. En primer lugar, se analizan las implicancias del trabajo en los planos práctico, tecnológico, social y teórico; luego se presentan las conclusiones, el grado de cumplimiento de los objetivos y las limitaciones del estudio; a continuación, se describen los aportes del proyecto; y finalmente se formulan recomendaciones y futuras líneas de trabajo.
 
-\begin{guia}[Guía de la cátedra: qué se evalúa en este capítulo]
+\section{Implicaciones}
+
+\subsection{Impacto práctico}
+
+La principal implicancia práctica del trabajo es la eliminación de dos tareas manuales y repetitivas del proceso de facturación de unidades financiadas: la carga del saldo de crédito por concesionario y, en Perú, el armado del Excel que se subía al portal de Santander. La carga de saldos partía de información enviada mayormente por correo, ya que el equipo, radicado en Argentina, no siempre contaba con acceso al home banking de cada país. Según la estimación del Capítulo 5, esto libera aproximadamente 442 horas anuales del equipo de cuentas a cobrar, que pueden destinarse a tareas de análisis y control en lugar de transcripción de datos.
+
+A este ahorro se suma la reducción del riesgo operativo. Al dejar de cargarse los saldos a mano, desaparecen errores como un dígito de menos, que podían provocar el rechazo de la facturación de una o varias unidades. Asimismo, el correo de despacho le da al usuario visibilidad sobre la finalización de cada lote, algo que antes solo podía conocer consultando repetidamente VH Legacy.
+
+\subsection{Innovación y tecnología}
+
+Desde el punto de vista tecnológico, el trabajo reemplaza mecanismos de intercambio basados en portales web, planillas y archivos por una integración directa mediante APIs REST con las entidades bancarias. Esta integración se logró sin reemplazar la arquitectura existente: una aplicación legada en Java 6 (VH Legacy) y una aplicación moderna en Java 21 con Spring Boot (VH Connect) incorporan la comunicación con los bancos de forma coordinada sobre una base de datos compartida.
+
+Este enfoque muestra que es posible modernizar un proceso crítico de forma incremental, extendiendo los sistemas vigentes en lugar de sustituirlos, lo que reduce el riesgo para la continuidad operativa. Además, la incorporación de la tabla 055\_TRANSACCIONES\_CREDITO y del proceso nocturno de reenvío introduce mecanismos de trazabilidad y recuperación ante errores que el proceso manual no tenía.
+
+\subsection{Relevancia social y económica}
+
+Los beneficios exceden al equipo de cuentas a cobrar. El concesionario depende de que sus unidades se facturen a tiempo, y en el proceso anterior cualquier demora se trasladaba en cadena a la carga de crédito, a la facturación y al informe al banco. Al automatizar estos pasos, se reduce la dependencia de la disponibilidad de una persona para que la operación avance.
+
+Por otro lado, actores externos a la empresa también reciben información en forma oportuna: en Chile, el correo de despacho llega a Forum, que lo utiliza como control cruzado de lo recibido por la API, y al equipo de logística. Esto mejora la coordinación entre las partes que intervienen en la cadena de financiación y entrega de las unidades.
+
+\subsection{Relevancia teórica}
+
+El trabajo tiene un carácter aplicado, por lo que su aporte teórico es acotado. No obstante, constituye un caso concreto que confirma lo planteado en el marco teórico del Capítulo 3: la automatización de procesos financieros requiere integrar plataformas heterogéneas, establecer mecanismos de trazabilidad y prever la gestión de excepciones. También aporta evidencia sobre una dificultad poco tratada en la literatura relevada: la brecha entre la documentación de una API bancaria y su comportamiento real, que en este caso solo se detectó al operar con datos productivos.
+
+\section{Conclusiones}
+
+\subsection{Respuesta a la hipótesis}
+
+La hipótesis planteada en el Capítulo 1 sostiene que la implementación de un sistema de facturación automatizado integrado con entidades bancarias permitiría mejorar la eficiencia operativa, reducir la intervención manual y aumentar la trazabilidad del proceso, en comparación con el modelo basado en tareas manuales e intercambio de archivos.
+
+Los resultados del Capítulo 7 permiten confirmarla en sus tres dimensiones. En cuanto a la eficiencia operativa, se eliminan la carga manual de saldos y el armado del Excel para Santander, con un ahorro estimado de aproximadamente 442 horas anuales. En relación con la intervención manual, la consulta de crédito y el informe de facturas se realizan sin participación del usuario, y las unidades pendientes de informar se reenvían automáticamente en el proceso nocturno. Por último, en términos de trazabilidad, cada comunicación con el banco queda registrada por VIN, con la solicitud, la respuesta y el código HTTP, y cada unidad indica si fue informada a la entidad.
+
+La confirmación tiene un matiz: el beneficio en eficiencia surge de tiempos relevados con los usuarios y de la actividad registrada en la base de datos, y no de una medición sistemática antes y después de la implementación.
+
+La Tabla~\ref{tab:19} resume el grado de cumplimiento de cada uno de los objetivos específicos planteados en el Capítulo 1, junto con la evidencia que lo respalda.
+
+\subsection{Cumplimiento de los objetivos}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3300}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2023}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4677}}@{}}
+\caption{Grado de cumplimiento de los objetivos específicos}\label{tab:19}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Grado de cumplimiento de los objetivos específicos (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Objetivo} & \textbf{Grado de cumplimiento} & \textbf{Evidencia} \\
+Analizar el proceso actual de facturación y de gestión de líneas de crédito & Cumplido & Relevamiento del proceso manual en los Capítulos 4 y 5, con tiempos y frecuencias por país \\
+\begin{minipage}[t]{\linewidth}\raggedright
 \begin{enumerate}
-    \item \textbf{Respuesta explícita a la hipótesis} del
-          capítulo~\ref{cap:introduccion}, con matices y contraejemplos
-          si corresponde (``afirmativa, con matices'' es una respuesta
-          válida; ``se cumplieron todos los objetivos'' sin evidencia no).
-    \item \textbf{Implicancias}: técnicas, sociales y económicas.
-    \item \textbf{Limitaciones honestas}, por categoría (técnicas, de datos,
-          de validación, de mercado), sin maquillaje. Declarar como
-          preliminar lo que es preliminar.
-    \item \textbf{Recomendaciones} accionables y \textbf{trabajo futuro}.
-    \item \textbf{Contribución al conocimiento}: qué sabe ahora la disciplina
-          que antes no sabía.
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Evaluar las limitaciones del proceso manual y del intercambio mediante archivos
 \end{enumerate}
-Cierra el arco narrativo: cada objetivo específico se retoma y se
-indica en qué medida se alcanzó, con referencia a la sección que lo
-demuestra.
-\end{guia}
+\end{minipage} & Cumplido & Identificación de la carga manual de saldos, el Excel de Santander y la falta de visibilidad sobre los lotes \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Diseñar una arquitectura que desacople componentes y facilite el mantenimiento y la escalabilidad
+\end{enumerate}
+\end{minipage} & Cumplido & Arquitectura del Capítulo 4, integrada a VH Legacy, SAI y VH Connect sin reemplazar componentes \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Implementar la integración con entidades bancarias mediante API REST
+\end{enumerate}
+\end{minipage} & Cumplido & Integración con Forum (Chile) y Santander (Perú), validada en pruebas y producción \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Incorporar mecanismos de monitoreo, auditoría y manejo de errores
+\end{enumerate}
+\end{minipage} & Parcialmente cumplido & Auditoría (tabla 055) y manejo de errores (proceso nocturno, reenvío manual en Chile) implementados; el monitoreo depende de logs generales y notificaciones a Teams \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  Evaluar la viabilidad de extender la solución a múltiples países
+\end{enumerate}
+\end{minipage} & Parcialmente cumplido & La solución opera en dos países con entidades y contratos distintos; la incorporación de Argentina se encuentra en evaluación por la organización para el próximo año, por fuera del alcance de este trabajo \\
+\end{longtable}
 
-\completar{Desarrollo del capítulo.}
+\subsection{Interpretación de los resultados}
 
-\section{\completar{Nombre de la sección}}
+Los resultados muestran que el principal valor de la solución no reside en una innovación tecnológica aislada, sino en conectar en un mismo flujo pasos que antes dependían de personas: la consulta del crédito, la facturación, la notificación del lote y el informe al banco. Este resultado coincide con lo señalado en el Capítulo 3, donde las brechas identificadas apuntaban precisamente a la ausencia de propuestas que integraran validación, intercambio con entidades bancarias y trazabilidad dentro de un mismo proceso.
 
-\begin{ejemplo}[Ejemplo: forma de la respuesta a la hipótesis]
-La hipótesis planteada en el capítulo~\ref{cap:introduccion} se responde
-de manera \completar{afirmativa, con matices}: el sistema alcanzó
-\completar{métrica} sobre el umbral definido en el
-capítulo~\ref{cap:metodologia}, aunque \completar{limitación concreta}.
-\end{ejemplo}
+En relación con los antecedentes, el trabajo comparte con \citet{barba2023} el objetivo de reducir tareas manuales en procesos financieros que involucran bancos, aunque mediante integración por API en lugar de automatización robótica. Con \citet{canqui2021} comparte la organización modular y la comunicación mediante servicios REST, aplicada en este caso a la convivencia entre una aplicación legada y una moderna.
 
-\completar{Texto.}
+Los resultados negativos también aportan información relevante. El error de formato en los importes y la falta del certificado SSL confirman una de las barreras anticipadas en el Capítulo 1: la dependencia de terceros para las pruebas y la integración. En el caso de Santander, la ausencia de un ambiente de pruebas obligó a validar en producción, lo que se compensó con lotes reducidos.
 
-\begin{table}[H]
-    \centering
-    \caption{Grado de cumplimiento de los objetivos específicos (ejemplo de estructura)}
-    \label{tab:cumplimiento}
-    \small
-    \begin{tabularx}{\textwidth}{l L l L}
-        \toprule
-        \tb{Objetivo} & \tb{Evidencia} & \tb{Grado} & \tb{Observación} \\
-        \midrule
-        OE-1 & Capítulo~\ref{cap:resultados} & Alcanzado & \completar{...} \\
-        OE-2 & \completar{...} & Parcial & \completar{...} \\
-        \bottomrule
-    \end{tabularx}
-\end{table}
+\subsection{Limitaciones del estudio}
+
+El estudio presenta algunas limitaciones que conviene explicitar. En primer lugar, el ahorro de tiempo es estimado y no medido: las horas surgen de tiempos relevados con los usuarios y de la actividad registrada en la base de datos, y no de una medición sistemática antes y después de la implementación. En segundo lugar, la validación con usuarios fue acotada: durante el diseño se realizó de manera informal y las entrevistas se limitaron a dos usuarios clave, uno por cada operación, por lo que sus percepciones no pueden generalizarse al conjunto de los usuarios.
+
+Por otro lado, las condiciones de prueba fueron desiguales entre ambos países, ya que Santander no ofrece un ambiente de pruebas, lo que limitó los escenarios de error que pudieron reproducirse sin riesgo. A esto se suma que la cobertura de pruebas automatizadas es parcial: solo VH Connect cuenta con pruebas unitarias, mientras que los cambios en VH Legacy se validaron manualmente. Finalmente, el alcance geográfico se limitó a Chile y Perú, con dos entidades bancarias.
+
+\section{Aportes del proyecto}
+
+El aporte central del trabajo es una solución adaptada a un proceso empresarial concreto que, según lo relevado en el Capítulo 3, no estaba cubierto por los antecedentes ni por los productos disponibles: la integración en un mismo flujo de la validación del crédito, la facturación, la notificación de lotes y el informe a las entidades bancarias, con trazabilidad por unidad.
+
+Como aporte para la práctica profesional, el trabajo documenta una estrategia de modernización incremental sobre sistemas legados, que extiende las aplicaciones existentes en lugar de reemplazarlas. También deja registro de problemas concretos de integración con entidades bancarias, como reglas de formato no documentadas o requisitos de certificados, útiles para futuros proyectos similares dentro y fuera de la organización.
+
+Finalmente, la solución quedó diseñada para incorporar nuevas entidades bancarias con un esfuerzo acotado, ya que la autenticación, el registro de transacciones y el manejo de reintentos son comunes a ambos países y solo varía el contrato de cada API.
+
+\section{Recomendaciones}
+
+\subsection{Para la organización}
+
+En primer lugar, se recomienda medir el impacto real del sistema, registrando durante algunos cierres de mes el tiempo efectivo que insume el proceso, para contrastarlo con las 442 horas estimadas y respaldar el beneficio con datos medidos. En la misma línea, convendría formalizar la validación con usuarios mediante instancias estructuradas de feedback, como encuestas breves o sesiones de validación con todo el equipo de cuentas a cobrar ante cada cambio relevante.
+
+En cuanto a la relación con las entidades bancarias, se sugiere solicitar a Santander un ambiente de pruebas y a ambas entidades documentación más precisa sobre formatos y validaciones, de modo de evitar que los errores se detecten recién en producción. Asimismo, es recomendable documentar la gestión de certificados, manteniendo un registro de los certificados utilizados por cada aplicación y sus vencimientos, para anticipar renovaciones y evitar fallos de conexión como el detectado en VH Legacy.
+
+Finalmente, a partir de lo señalado por el usuario referente en la entrevista, que valoró conservar la posibilidad de modificar el saldo manualmente en CR08 si la comunicación con el banco falla, se recomienda formalizar ese procedimiento de contingencia y registrar cuándo se utiliza, para distinguir los saldos actualizados automáticamente de los cargados a mano.
+
+\subsection{Desarrollo tecnológico}
+
+Desde el punto de vista técnico, la primera recomendación es centralizar y retener los logs, en particular los de VH Legacy, cuya retención en OpenShift es de aproximadamente una hora, para poder analizar los errores después de ocurridos. A partir de la información ya registrada en la tabla 055, podría construirse además un tablero que muestre, por país y por lote, las unidades informadas, rechazadas y pendientes, y complementar las notificaciones a Microsoft Teams con alertas específicas cuando el proceso nocturno no logre informar unidades pendientes.
+
+Por último, se recomienda incorporar pruebas automatizadas sobre la integración con los bancos en VH Legacy, o bien migrar progresivamente esa lógica a VH Connect, que ya cuenta con pruebas unitarias.
+
+\section{Futuras líneas de trabajo}
+
+La principal línea de continuidad está vinculada con la extensión a otros países. La organización evalúa incorporar Argentina el próximo año y, en paralelo, consolidar la gestión del crédito en la aplicación que hoy cumple esa función en Brasil, sumando también a Argentina. En ese escenario, la integración desarrollada en este trabajo se trasladaría a esa aplicación: la autenticación con cada entidad, el registro de transacciones por unidad, el manejo de reintentos y los problemas de integración ya resueltos se reutilizarían en la nueva plataforma, y solo variaría el contrato de cada API bancaria.
+
+Este movimiento se enmarca en un cambio más amplio, ya que la organización está separando el sistema actual en aplicaciones especializadas, con una aplicación central que recibe la información y otras dedicadas a funciones específicas, como la comunicación con los organismos fiscales, la gestión de precios o la contabilidad. En ese contexto, la integración con las entidades bancarias podría constituirse como un módulo propio, lo que facilitaría incorporar nuevas entidades y países sin afectar al resto de la plataforma.
+
+En el caso de Perú, queda pendiente automatizar la carga de DUA y plazo, último paso manual del proceso, obteniendo esos datos desde el sistema de origen en lugar de cargarlos mediante Excel en Alta Dua File. Además, el usuario de Perú responsable de la carga de DUA y de la aprobación de desembolsos identificó, en la entrevista realizada para el Capítulo 7, dos mejoras que hoy dependen de las reglas de Santander y que se propone evaluar junto con la entidad. La primera es eliminar el límite de 25 unidades por solicitud, de modo que un lote completo pueda informarse en un solo envío, sin importar su tamaño. La segunda es simplificar la aprobación de planillas: hoy cada envío genera una planilla que el usuario debe autorizar en el home banking para que se realice el desembolso, y se propone analizar mecanismos que eviten o reduzcan esa aprobación manual, siempre que sean compatibles con los controles de seguridad que la entidad exige sobre los desembolsos.
+
+Otra línea posible es analizar, junto con el área de negocio, si las entidades aplican penalidades cuando las facturas se informan fuera de plazo, y cuantificar el beneficio económico de informarlas automáticamente. También sería valioso realizar un estudio con mediciones antes y después sobre un período más extenso, que permita cuantificar con precisión el ahorro de tiempo y la reducción de errores.
+
+\section{Consideraciones finales}
+
+El trabajo partió de un proceso de facturación que dependía de que una persona recibiera la información por correo o la consultara en el home banking, transcribiera saldos, armara planillas y verificara manualmente el avance de cada lote. La solución implementada integra esos pasos en un flujo automático y trazable, sin reemplazar los sistemas existentes y con resultados verificados en producción en Chile y Perú.
+
+Los problemas encontrados durante la integración, lejos de invalidar los resultados, muestran que en proyectos que dependen de terceros la validación con datos reales es tan importante como el diseño. Las limitaciones identificadas, en particular el monitoreo, la medición del ahorro y la carga manual de DUA en Perú, marcan el camino natural para la evolución de la solución.

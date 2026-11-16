@@ -1,102 +1,232 @@
 %!TEX root = ../main.tex
-% =============================================================
-%  CAPÍTULO 6 — ANÁLISIS DE RIESGOS     (Entrega 6 · 5 % · 29/9)
-% =============================================================
+\chapter{Riesgos}\label{cap:riesgos}
 
-\chapter{Análisis de riesgos}\label{cap:riesgos}
+\section{Riesgos y contingencias}
 
-\begin{guia}[Guía de la cátedra: qué espera ver en este capítulo]
-Formato obligatorio de cada riesgo: \textbf{``Debido a [causa], podría
-ocurrir [evento], lo que provocaría [efecto]''}. Sin causa es un miedo,
-no un riesgo.
-\begin{enumerate}
-    \item \textbf{Tabla de riesgos} con ID, descripción causa--evento--efecto,
-          naturaleza, etapa, probabilidad (1--5), impacto (1--5),
-          \gls{exposicion} (1--25), respuesta, responsable y contingencia;
-          ordenada por exposición descendente. Con los 6 a 8 primeros bien
-          tratados alcanza; el resto se monitorea.
-    \item Al menos un riesgo de \textbf{cada naturaleza} (alcance, técnicos,
-          recursos, terceros, datos y cumplimiento) y de \textbf{cada etapa}
-          (antes de arrancar, durante, pasaje a producción, operación).
-    \item Al menos un riesgo \textbf{externo} (``si no tienen ninguno, no
-          miraron para afuera'') y al menos uno con respuesta
-          \textbf{aceptar} bien justificado (``aceptar se escribe; ignorar
-          se paga'').
-    \item \textbf{Supuestos y restricciones} separados de los riesgos. Cada
-          supuesto que falla se convierte en riesgo.
-    \item Que sean propios: ``un riesgo copiado de internet se nota a tres
-          metros''.
-\end{enumerate}
-Los siete que matan proyectos: alcance que nunca cierra (el número uno
-de la materia), pérdida de la fuente de datos, equipo que se desarma,
-tecnología que no da, inviabilidad de costo, barrera legal o ética,
-nadie a cargo. Y la pregunta de jurado: ¿quién lo mantiene cuando
-ustedes se reciben? Marco de referencia: \citet{pmi2021}.
-\end{guia}
+Un riesgo es un evento que todavía no ocurrió, con una probabilidad de ocurrencia y un impacto asociado en caso de efectivizarse; a diferencia de un problema, que ya sucedió y sobre el que se actúa, un riesgo es algo sobre lo que se puede decidir con anticipación. A continuación, se identifican los principales riesgos del proyecto, clasificados según su naturaleza (alcance, técnicos, de recursos, de terceros, y de datos y cumplimiento) y según la etapa del proyecto en la que pueden manifestarse (antes de arrancar, durante el desarrollo, en el pasaje a producción y durante la operación).
 
-\completar{Desarrollo del capítulo.}
+Para cada riesgo se estimaron su probabilidad y su impacto en una escala de 1 (muy improbable / insignificante) a 5 (muy probable / severo), cuyo producto determina el nivel de exposición. Los riesgos se ordenaron de mayor a menor exposición, priorizando el tratamiento de los de mayor puntaje.
 
-\section{\completar{Nombre de la sección}}
+Las Tablas~\ref{tab:5} a ~\ref{tab:12} presentan la ficha de cada riesgo identificado, con su causa, el evento, el efecto, la valoración de probabilidad e impacto, la respuesta definida y el plan de contingencia.
 
-\completar{Texto.}
+\section{Tabla de riesgos}
 
-% Matriz de exposición de la clase 11: probabilidad x impacto.
-\begin{table}[H]
-    \centering
-    \caption{Matriz de exposición: probabilidad $\times$ impacto (escala de la cátedra)}
-    \label{tab:exposicion}
-    \small
-    \begin{tabular}{l c c c c c}
-        \toprule
-        & \tb{1 Insignif.} & \tb{2 Menor} & \tb{3 Moderado} & \tb{4 Importante} & \tb{5 Severo} \\
-        \midrule
-        \tb{5 Muy probable}   & \riesgoBajo{5}  & \riesgoMedio{10} & \riesgoAlto{15} & \riesgoAlto{20} & \riesgoAlto{25} \\
-        \tb{4 Probable}       & \riesgoBajo{4}  & \riesgoMedio{8}  & \riesgoAlto{12} & \riesgoAlto{16} & \riesgoAlto{20} \\
-        \tb{3 Posible}        & \riesgoBajo{3}  & \riesgoMedio{6}  & \riesgoMedio{9} & \riesgoAlto{12} & \riesgoAlto{15} \\
-        \tb{2 Poco probable}  & \riesgoBajo{2}  & \riesgoBajo{4}   & \riesgoMedio{6} & \riesgoMedio{8} & \riesgoMedio{10} \\
-        \tb{1 Muy improbable} & \riesgoBajo{1}  & \riesgoBajo{2}   & \riesgoBajo{3}  & \riesgoBajo{4}  & \riesgoBajo{5} \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R1}\label{tab:5}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R1 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R1 --- El desarrollo real sigue vivo mientras se redacta el capítulo \\
+\textbf{Área} & Alcance \\
+\textbf{Etapa} & Antes de arrancar \\
+\textbf{Causa} & El sistema de facturación sigue en desarrollo activo en la empresa mientras se redacta este capítulo. \\
+\textbf{Evento (riesgo)} & El sistema de facturación sigue en desarrollo activo en la empresa mientras se redacta este capítulo, y pueden surgir definiciones o cambios funcionales nuevos después de haber dado por cerrada una sección del documento. \\
+\textbf{Efecto} & Un cambio o definición nueva deja desactualizada una parte del capítulo que se daba por cerrada. \\
+\textbf{Probabilidad} & 3 (Posible) \\
+\textbf{Impacto} & 3 (Moderado) \\
+\textbf{Exposición} & 9 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Esteban Hernández (autor) \\
+\textbf{Contingencia} & Cerrar y documentar el alcance mínimo del capítulo antes de redactar; revisar semanalmente el avance contra el cronograma. \\
+\end{longtable}
 
-\begin{ejemplo}[Ejemplo de la cátedra: así no / así sí]
-\textbf{Así no:} ``Puede fallar el servidor.'' No hay causa, no hay
-consecuencia y no se puede hacer nada con esa frase.
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R2}\label{tab:6}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R2 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R2 --- Adopción desalineada de Apigee entre VH Legacy y VH Connect \\
+\textbf{Área} & Técnico \\
+\textbf{Etapa} & Durante el desarrollo \\
+\textbf{Causa} & La autenticación con los bancos incorporó a Apigee como capa intermedia (credenciales $\rightarrow$ token $\rightarrow$ llamada al endpoint de Apigee con el token en el header Bearer), que se suma a la lógica propia que cada banco ya exige (formato de body, headers). Esta doble lógica debe implementarse y mantenerse en VH Legacy y VH Connect por separado, dado que no comparten código. \\
+\textbf{Evento (riesgo)} & Una de las dos aplicaciones queda desalineada respecto de la otra en la integración con Apigee o en el manejo de la lógica específica del banco \\
+\textbf{Efecto} & Falla en la obtención o uso del token para esa aplicación, lo que impide actualizar crédito (VH Legacy) o enviar facturación (VH Connect) según cuál sea la afectada. \\
+\textbf{Probabilidad} & 2 (Poco probable) \\
+\textbf{Impacto} & 3 (Moderado) \\
+\textbf{Exposición} & 6 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Esteban Hernández (autor) --- desarrollo en VH Legacy y VH Connect / equipo de desarrollo --- configuración de Apigee \\
+\textbf{Contingencia} & Validar la integración con Apigee y la lógica específica de cada banco en ambas aplicaciones contra los mismos casos de prueba antes de dar por cerrada la migración. \\
+\end{longtable}
 
-\textbf{Así sí:} ``Debido a que el prototipo corre en una única VM sin
-réplica, podría caerse durante la demo, lo que impediría mostrar el
-resultado al jurado.''
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R3}\label{tab:7}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R3 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R3 --- Tiempo limitado por trabajo full-time en paralelo al proyecto fina \\
+\textbf{Área} & Recursos \\
+\textbf{Etapa} & Antes de arrancar \\
+\textbf{Causa} & El desarrollo del proyecto se realiza en paralelo al rol laboral del autor en la empresa. \\
+\textbf{Evento (riesgo)} & No se dispone del tiempo estimado para completar cada entrega. \\
+\textbf{Efecto} & Atrasos en el cronograma de capítulos del proyecto final \\
+\textbf{Probabilidad} & 3 (Posible) \\
+\textbf{Impacto} & 3 (Moderado) \\
+\textbf{Exposición} & 9 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Esteban Hernández (autor) \\
+\textbf{Contingencia} & Priorizar las tareas críticas de cada capítulo y mantener margen en el cronograma personal. \\
+\end{longtable}
 
-Cuatro respuestas posibles: \textbf{evitar} (sacar la causa: cambiar el
-alcance), \textbf{mitigar} (bajar probabilidad o impacto: repositorio con
-backup, ambiente de respaldo), \textbf{transferir} (que lo asuma un
-tercero: hosting administrado, librería probada) y \textbf{aceptar}
-(convivir con él, documentado, con responsable y contingencia).
-\end{ejemplo}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R4}\label{tab:8}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R4 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R4 --- Caída o cambio no notificado en la API bancaria \\
+\textbf{Área} & Terceros \\
+\textbf{Etapa} & Durante el desarrollo / Operación \\
+\textbf{Causa} & El sistema depende de las APIs expuestas por Forum (Chile) y Santander (Perú), fuera del control del equipo de desarrollo. \\
+\textbf{Evento (riesgo)} & Caída de servicio del banco o cambio no notificado en el contrato de su API \\
+\textbf{Efecto} & Fallos en la obtención del token, en la actualización de crédito o en el envío de facturación al banco. \\
+\textbf{Probabilidad} & 2 (Poco probable) \\
+\textbf{Impacto} & 4 (Importante) \\
+\textbf{Exposición} & 8 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Equipo de desarrollo / soporte del banco \\
+\textbf{Contingencia} & Cacheo y reintento de token ya implementado; notificaciones automáticas a Microsoft Teams ante error de comunicación con el banco; ante un cambio de contrato, ajustar el código de las aplicaciones afectadas (VH Legacy o VH Connect) en base a la nueva especificación. \\
+\end{longtable}
 
-% La matriz va apaisada (landscape) porque tiene muchas columnas.
-% Columnas: l = ancho fijo, p{..} = ancho fijo con corte de línea,
-% L = ancho automático (se reparte el espacio restante).
-\begin{landscape}
-\small
-\begin{xltabular}{\linewidth}{l L p{1.7cm} p{1.6cm} c c c L p{1.3cm} L}
-    \caption{Matriz de riesgos ordenada por exposición (ejemplo de estructura)}
-    \label{tab:matriz-riesgos} \\
-    \toprule
-    \tb{ID} & \tb{Descripción (causa, evento, efecto)} & \tb{Naturaleza} & \tb{Etapa} & \tb{P} & \tb{I} & \tb{E} & \tb{Respuesta} & \tb{Resp.} & \tb{Contingencia} \\
-    \midrule
-    \endfirsthead
-    \toprule
-    \tb{ID} & \tb{Descripción (causa, evento, efecto)} & \tb{Naturaleza} & \tb{Etapa} & \tb{P} & \tb{I} & \tb{E} & \tb{Respuesta} & \tb{Resp.} & \tb{Contingencia} \\
-    \midrule
-    \endhead
-    \bottomrule
-    \endfoot
-    R-01 & Debido a que los requerimientos se relevan con un solo usuario, podría ocurrir que aparezcan funciones nuevas en cada revisión, lo que provocaría que el alcance no cierre antes de la entrega final. & Alcance & Durante & 4 & 5 & \riesgoAlto{20} & Mitigar: congelar el alcance del \gls{mvp} en el hito H4 & Autor & Recortar a los \gls{rf} de prioridad alta \\
-    R-02 & Debido a que el prototipo corre en una única VM sin réplica, podría caerse durante la demo, lo que impediría mostrar el resultado al jurado. & Técnico & Pasaje a producción & 3 & 5 & \riesgoAlto{15} & Mitigar: ambiente de respaldo y video de la demo & Autor & Mostrar el video y el ambiente local \\
-    R-03 & Debido a que la fuente de datos es una \gls{api} de terceros sin acuerdo de servicio, podría ocurrir que cambie o se cierre, lo que provocaría la pérdida del insumo del modelo. & Datos / terceros (externo) & Operación & 3 & 5 & \riesgoAlto{15} & Mitigar: descarga periódica y respaldo local & Autor & Reentrenar con el último respaldo \\
-    R-04 & Debido a que el hosting se cotiza en dólares y el presupuesto en pesos, podría ocurrir que el costo supere lo previsto, lo que provocaría la suspensión del entorno de producción. & Recursos (externo) & Operación & 3 & 3 & \riesgoMedio{9} & Transferir: hosting administrado con plan gratuito de respaldo & Autor & Migrar a entorno gratuito degradado \\
-    R-05 & Debido a que el equipo es de una persona, podría ocurrir una enfermedad o sobrecarga laboral, lo que provocaría atrasos en las entregas. & Recursos & Durante & 2 & 4 & \riesgoMedio{8} & Aceptar: no hay reemplazo posible; se documenta el avance semanalmente & Autor & Solicitar prórroga a la cátedra con evidencia \\
-    R-06 & \completar{...} & \completar{...} & \completar{...} & \completar{} & \completar{} & \riesgoBajo{\completar{}} & \completar{...} & \completar{...} & \completar{...} \\
-\end{xltabular}
-\end{landscape}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R5}\label{tab:9}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R5 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R5 --- Problema de configuración o disponibilidad del gateway Apigee \\
+\textbf{Área} & Técnico \\
+\textbf{Etapa} & Durante el desarrollo / Operación \\
+\textbf{Causa} & Apigee es administrado por un equipo distinto al que desarrolla VH Legacy y VH Connect, por lo que el autor no tiene control directo sobre su configuración ni disponibilidad. \\
+\textbf{Evento (riesgo)} & Error de configuración o caída del lado del equipo que administra Apigee. \\
+\textbf{Efecto} & Fallos en la obtención del token, lo que impide actualizar crédito (VH Legacy) o enviar facturación (VH Connect) según cuál aplicación se vea afectada. \\
+\textbf{Probabilidad} & 2 (Poco probable) \\
+\textbf{Impacto} & 3 (Moderado) \\
+\textbf{Exposición} & 6 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Equipo que administra Apigee / equipo de desarrollo (adaptación de las aplicaciones ante cambios) \\
+\textbf{Contingencia} & Cacheo y reintento de token ya implementado; notificaciones automáticas a Microsoft Teams ante error de comunicación con el gateway. \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R6}\label{tab:10}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R6 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R6 --- Exposición de datos sensibles en capturas o Excel usados como evidencia \\
+\textbf{Área} & Datos y cumplimiento \\
+\textbf{Etapa} & Antes de arrancar \\
+\textbf{Causa} & Se usan capturas de pantalla y un Excel real de producción como evidencia del proceso manual en el proyecto. \\
+\textbf{Evento (riesgo)} & Información sensible de clientes o de la empresa queda expuesta en el documento entregado. \\
+\textbf{Efecto} & Incumplimiento de las políticas de confidencialidad de la empresa. \\
+\textbf{Probabilidad} & 2 (Poco probable) \\
+\textbf{Impacto} & 4 (Importante) \\
+\textbf{Exposición} & 8 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Esteban Hernández (autor) \\
+\textbf{Contingencia} & Revisión en capas antes de insertar cualquier imagen o archivo real en el documento: un tapado inicial por el autor, una revisión asistida por IA como control adicional y generadora de sugerencias (sin delegar en ella la decisión final), y una validación de un referente de la empresa que conozca las políticas de confidencialidad aplicables. \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R7}\label{tab:11}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R7 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R7 --- Falta de ambiente dev/QA en Perú para validar la nueva funcionalidad de lotes \\
+\textbf{Área} & Técnico \\
+\textbf{Etapa} & Pasaje a producción \\
+\textbf{Causa} & Perú solo cuenta con ambiente de producción para la entidad bancaria (sin dev/QA ni servicio de test disponible), a diferencia de Chile. Si bien la documentación y el formato de datos de Santander ya están relevados y no difieren sustancialmente de los de Chile, no existe manera de ejecutar una prueba end-to-end contra un servicio simulado antes del despliegue real. \\
+\textbf{Evento (riesgo)} & El primer despliegue en producción termina siendo también la primera ejecución real del proceso, sin haber podido validarse previamente contra un servicio de test. \\
+\textbf{Efecto} & Errores en el primer envío de facturación real a Santander (por ejemplo, algún caso borde no contemplado en la documentación). \\
+\textbf{Probabilidad} & 3 (Posible) \\
+\textbf{Impacto} & 4 (Importante) \\
+\textbf{Exposición} & 12 \\
+\textbf{Respuesta} & Mitigar \\
+\textbf{Responsable} & Equipo de desarrollo / DevOps \\
+\textbf{Contingencia} & Validar el desarrollo contra la documentación/especificación ya relevada de Santander como primera línea de control; evaluar la viabilidad de levantar un servicio de mock propio en GCP para una prueba end-to-end adicional; y reforzar el monitoreo durante el primer envío real en producción, dado que no hay forma de probarlo previamente en un ambiente equivalente. \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2650}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7350}}@{}}
+\caption{Ficha del riesgo R8}\label{tab:12}\\
+\toprule\noalign{}
+\endfirsthead
+\caption[]{Ficha del riesgo R8 (continuación)}\\
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Riesgo} & R8 --- Falta de herramientas de monitoreo en producción \\
+\textbf{Área} & Recursos \\
+\textbf{Etapa} & Operación \\
+\textbf{Causa} & La organización cuenta con herramientas de monitoreo disponibles a nivel corporativo, pero VH Legacy está planificada para ser decomisada en los próximos años, y VH Connect comparte ese mismo horizonte como parte del decomiso de todo el paquete VH. Instrumentar logs centralizados o dashboards específicos sobre aplicaciones con un ciclo de vida remanente limitado no resulta una inversión justificada. \\
+\textbf{Evento (riesgo)} & Al no implementarse monitoreo específico sobre estas aplicaciones, se demora la detección de incidentes en producción. \\
+\textbf{Efecto} & Mayor tiempo de resolución ante errores en el proceso de facturación. \\
+\textbf{Probabilidad} & 3 (Posible) \\
+\textbf{Impacto} & 2 (Menor) \\
+\textbf{Exposición} & 6 \\
+\textbf{Respuesta} & Aceptar \\
+\textbf{Responsable} & Gerencia / negocio (decisión de no invertir en aplicaciones próximas a decomisar) \\
+\textbf{Contingencia} & Se acepta conscientemente: dado el horizonte de decomiso de VH Legacy y VH Connect, no se justifica invertir en instrumentación de monitoreo específica. Se documenta como limitación conocida; las notificaciones a Microsoft Teams ya existentes mitigan parcialmente el riesgo mientras las aplicaciones sigan en operación. \\
+\end{longtable}
+
+\section{Supuestos}
+
+Los supuestos son hechos o hipótesis en los que se basa el proyecto para tener validez. Se identificaron los siguientes:
+
+\begin{itemize}
+\item Los bancos (Forum y Santander) mantendrán estables sus contratos de API durante el desarrollo del proyecto.
+\item El acceso a la base de datos Oracle de producción para relevar métricas reales seguirá disponible.
+\item El equipo de DevOps seguirá gestionando la infraestructura (OpenShift, GCP) sin cambios que afecten el despliegue del proyecto.
+\end{itemize}
+\section{Restricciones}
+
+Las restricciones son condiciones dadas que limitan al proyecto en tiempo, costo, calidad u otros aspectos. Se identificaron las siguientes:
+
+\begin{itemize}
+\item Cronograma fijo de entregas por capítulo definido por la cátedra (Capítulo 6: 29/9).
+\item El autor no tiene injerencia sobre decisiones de infraestructura o DevOps, que quedan fuera de su rol dentro del proyecto.
+\item El desarrollo se realiza en paralelo al trabajo del autor en la empresa, con recursos de tiempo limitados.
+\item El alcance del MVP está limitado a Chile y Perú.
+\end{itemize}
