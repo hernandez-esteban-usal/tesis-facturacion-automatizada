@@ -320,3 +320,7 @@ _lua/
 _pdf/
 _ov/
 *.log
+
+.idea/
+
+.idea/
