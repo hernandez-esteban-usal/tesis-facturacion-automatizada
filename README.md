@@ -1,89 +1,52 @@
-# Template — Proyecto Final de Ingeniería Informática (USAL)
+# Diseño e implementación de una solución personalizada para la automatización de facturación con integración bancaria en una empresa automotriz
 
-Template LaTeX para el documento de Proyecto Final de la Facultad de
-Ingeniería de la Universidad del Salvador. Sigue la estructura de ocho
-capítulos de la cátedra, uno por entrega, y cada capítulo abre con una caja
-que resume qué evalúa la cátedra.
+Proyecto Final de Ingeniería en Informática — Facultad de Ingeniería,
+Universidad del Salvador.
 
-## Cómo empezar
+**Autor:** Esteban Nicolas Hernandez
+**Decano:** Walter Oscar Rodríguez Esquivel
+**Director de carrera:** Germán Buchniv
+**Profesor y tutor:** Esteban Tissera
 
-1. Crear el repo propio con **Use this template** (o clonar este).
-2. Completar los datos al principio de `main.tex`: título, autor, correo,
-   autoridades, ciclo lectivo y palabras clave.
-3. Escribir cada capítulo en su archivo de `capitulos/`, reemplazando los
-   marcadores entre corchetes.
+## Resumen
+
+El trabajo aborda la automatización del proceso de facturación de unidades
+financiadas en una empresa automotriz con operaciones en Chile y Perú. Se
+diseñó una solución que integra los sistemas internos de la empresa con las
+APIs REST de las entidades bancarias para consultar y actualizar en forma
+automática las líneas de crédito de los concesionarios, informar las
+facturas emitidas y registrar la trazabilidad de cada comunicación,
+reemplazando la carga manual de saldos y el intercambio de planillas.
 
 ## Compilar
 
-Compilador: **pdfLaTeX** (LuaLaTeX también funciona, y es obligatorio con
-`pdfa=true`). La bibliografía usa `biber` y el glosario `makeglossaries`;
-`latexmk` corre todo solo.
+Requisitos: TeX Live (incluye `pdflatex`, `biber` y `makeglossaries`).
 
 ```bash
-git clone https://github.com/Noorman999/usal-proyecto-final-template.git mi-tesis
-cd mi-tesis
+git clone https://github.com/hernandez-esteban-usal/tesis-facturacion-automatizada.git
+cd tesis-facturacion-automatizada
 latexmk main.tex
 ```
 
-**En Overleaf**: subir la carpeta como `.zip` y elegir pdfLaTeX en el menú
-(Menu → Compiler). El plan gratuito corta la compilación a los 20 segundos;
-la primera vez puede quedarse corta, pero deja archivos en caché: apretar
-*Recompile* de nuevo y termina. Las siguientes compilaciones tardan unos
-segundos. Si se corta seguido, compilar localmente (TeX Live + VS Code con
-LaTeX Workshop) no tiene límite.
+`latexmk` ejecuta pdfLaTeX, biber y makeglossaries en el orden necesario y
+genera `main.pdf`.
 
 ## Estructura
 
 | Archivo | Contenido |
 |---|---|
 | `main.tex` | Datos del trabajo y orden de los capítulos |
-| `preliminares/` | Resumen, abstract, agradecimientos, declaración de IA, y las entradas del glosario, siglas y símbolos (se imprimen al final del documento) |
-| `capitulos/01` a `08` | Introducción · Metodología y procedimientos · Síntesis de la literatura consultada · Marco tecnológico · Justificación económica · Análisis de riesgos · Presentación de resultados · Implicancias, conclusiones y recomendaciones |
-| `refs.bib` | Bibliografía (estilo APA) |
-| `apendices/` | Encuesta de validación, entrevista, detalles técnicos |
-| `anexos/` | Repositorios de código |
+| `preliminares/` | Agradecimientos, resumen, abstract, declaración sobre el uso de IA, glosario y siglas |
+| `capitulos/01` a `08` | Introducción · Metodología de la investigación · Síntesis de la literatura consultada · Justificación técnica y diseño de la solución · Justificación económica · Riesgos · Presentación de resultados · Implicaciones, conclusiones y recomendaciones |
+| `apendices/` | Guía y registro de las entrevistas a usuarios referentes |
 | `figuras/` | Imágenes del trabajo |
+| `refs.bib` | Bibliografía (estilo APA, procesada con biber) |
 
-## Cajas de guía y marcadores
+## Versión entregada
 
-```latex
-\begin{guia} ... \end{guia}          % qué evalúa la cátedra
-\begin{ejemplo} ... \end{ejemplo}    % ejemplo de estructura
-\completar{texto}                    % marcador a reemplazar
-```
+La versión final corresponde al tag `entrega-final`.
 
-Para la entrega final se ocultan todas las cajas con:
+---
 
-```latex
-\documentclass[guias=false]{usal-proyecto-final}
-```
-
-Las cajas `nota`, `advertencia` y `resumenbox` son para el cuerpo del
-trabajo y quedan en el documento final.
-
-## Citas, glosario y siglas
-
-```latex
-\citep{clave}   % (Autor, año)
-\citet{clave}   % Autor (año)
-\gls{clave}     % término del glosario o sigla, con enlace
-```
-
-Las siglas se expanden completas la primera vez y luego se abrevian. Solo
-se imprimen las entradas usadas en el texto.
-
-## Portada
-
-```latex
-\coverlogo{template/usal}            % logo superior
-\coverwatermark{template/archivo}    % marca de agua (vacío = sin marca)
-```
-
-El color principal del documento es `mainColor`, en la sección 3 de
-`usal-proyecto-final.cls`.
-
-## PDF/A
-
-Con la opción de clase `pdfa=true` (y LuaLaTeX) el PDF sale en formato
-PDF/A-2b. Compila más lento; activarlo solo si lo piden. Se puede validar
-en <https://www.pdfforge.org/online/en/validate-pdfa>.
+Basado en el template oficial de la cátedra:
+<https://github.com/Noorman999/usal-proyecto-final-template>
